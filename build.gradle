@@ -1,0 +1,186 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}" apply false
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}" apply false
+	id 'maven-publish'
+}
+
+// Loom has two plugins: one for unobfuscated Minecraft (26.1+), one that remaps for older versions.
+apply plugin: "net.fabricmc.fabric-loom${project.loom_suffix}"
+
+repositories {
+	// Add repositories to retrieve artifacts from in here.
+	// You should only use this when depending on other mods because
+	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
+	// for more information about repositories.
+	maven {
+		name = 'Xander Maven' // YetAnotherConfigLib
+		url = 'https://maven.isxander.dev/releases'
+	}
+	maven {
+		name = 'TerraformersMC' // Mod Menu
+		url = 'https://maven.terraformersmc.com/releases/'
+	}
+}
+
+// The few places where Minecraft's names differ between versions live in compat/<version>/java (see versions/versions.json).
+// A file in compat/<version>/ with the same path as a shared file REPLACES the shared one for that version.
+def compatRoot = file("compat/${project.compat}")
+def replaced = [] as Set
+compatRoot.eachFileRecurse { f ->
+	if (f.isFile() && f.name.endsWith('.java')) {
+		replaced << f.toPath().toString().substring(compatRoot.toString().length() + 1).replace('\\', '/').replaceFirst('^[^/]+/', '')
+	}
+}
+
+sourceSets.main.java.srcDir file("compat/${project.compat}/java")
+
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"the-nothing-mod" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+
+	// Only affects the dev game (runClient / runServer), never the released jar.
+	runs.configureEach {
+		// Lets a JetBrains Runtime hot-swap added/removed methods and fields. Ignored (not an error) on other JVMs.
+		vmArg "-XX:+IgnoreUnrecognizedVMOptions"
+		vmArg "-XX:+AllowEnhancedClassRedefinition"
+	}
+}
+
+sourceSets.client.java.srcDir file("compat/${project.compat}/client")
+sourceSets.client.java.srcDir file("compat/${project.compat}/fabric")
+// Resources can be replaced the same way (compat/<version>/fabric-resources).
+def resRoot = file("compat/${project.compat}/fabric-resources")
+def replacedRes = [] as Set
+if (resRoot.exists()) {
+	resRoot.eachFileRecurse { f -> if (f.isFile()) replacedRes << f.toPath().toString().substring(resRoot.toString().length() + 1).replace('\\', '/') }
+}
+sourceSets.client.resources.srcDir resRoot
+sourceSets.client.resources.exclude { el -> !el.file.path.startsWith(resRoot.path) && replacedRes.contains(el.relativePath.pathString) }
+[sourceSets.main, sourceSets.client].each { set ->
+	set.java.exclude { el -> !el.file.path.startsWith(compatRoot.path) && replaced.contains(el.relativePath.pathString) }
+}
+
+// --- Dev hot reload ---
+// Plain Java hot-swap only lets you edit inside method bodies. A JetBrains Runtime (JBR, the JDK bundled with IntelliJ)
+// can also swap changes that add or remove methods and fields, while the game keeps running. If IntelliJ's JBR is
+// found (or -PdevJavaHome=<path> / the DEV_JAVA_HOME env var points at one), the dev game launches on it; otherwise it
+// uses your normal JDK and you get plain hot-swap. See DEV_NOTES.md.
+def devJbrHome = {
+	def explicit = project.findProperty('devJavaHome') ?: System.getenv('DEV_JAVA_HOME')
+	if (explicit) {
+		return new File(explicit.toString())
+	}
+	def programFiles = System.getenv('ProgramFiles')
+	if (programFiles) {
+		def ides = new File(programFiles, 'JetBrains').listFiles()?.findAll { new File(it, 'jbr/bin/java.exe').exists() }
+		if (ides) {
+			return new File(ides.sort { it.name }.last(), 'jbr')
+		}
+	}
+	return null
+}.call()
+
+def devJavaExecutable = devJbrHome == null ? null : [new File(devJbrHome, 'bin/java.exe'), new File(devJbrHome, 'bin/java')].find { it.exists() }
+if (devJavaExecutable != null) {
+	tasks.matching { it.name == 'runClient' || it.name == 'runServer' }.configureEach {
+		executable = devJavaExecutable.path
+	}
+}
+
+dependencies {
+	// To change the versions see the gradle.properties file
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	if (project.loom_suffix == '-remap') {
+		mappings loom.officialMojangMappings()
+	}
+	def mod = project.loom_suffix == '-remap' ? 'modImplementation' : 'implementation'
+	add(mod, "net.fabricmc:fabric-loader:${project.loader_version}")
+
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	add(mod, "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}")
+
+	// Config screen. `include` bundles each one inside our jar (jar-in-jar), so players don't install them separately.
+	add(mod, "dev.isxander:yet-another-config-lib:${project.yacl_version}")
+	include "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+	add(mod, "com.terraformersmc:modmenu:${project.modmenu_version}")
+	include "com.terraformersmc:modmenu:${project.modmenu_version}"
+}
+
+processResources {
+	def version = project.version
+	def minecraftRange = project.minecraft_range
+	inputs.property "version", version
+	def dropList = project.drop_attributes.toString().split(',').collect { it.trim() }.findAll { !it.isEmpty() }
+	inputs.property "minecraft_range", minecraftRange
+	inputs.property "drop_attributes", dropList
+
+	def javaLevel = project.java_version.toString()
+	inputs.property "java_level", javaLevel
+	filesMatching('*.mixins.json') {
+		filter { line -> line.replace('JAVA_25', 'JAVA_' + javaLevel) }
+	}
+	filesMatching("fabric.mod.json") {
+		expand "version": version, "minecraft_range": minecraftRange, "java_version": javaLevel
+	}
+	// leave out dimension attributes this Minecraft version does not know
+	filesMatching("data/the-nothing-mod/dimension_type/*.json") {
+		filter { line -> dropList.any { line.contains(it) } ? null : line }
+	}
+}
+
+tasks.named('processClientResources') {
+	def javaLevel = project.java_version.toString()
+	inputs.property 'java_level', javaLevel
+	filesMatching('*.mixins.json') {
+		filter { line -> line.replace('JAVA_25', 'JAVA_' + javaLevel) }
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = project.java_version as int
+}
+
+java {
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.toVersion(project.java_version)
+	targetCompatibility = JavaVersion.toVersion(project.java_version)
+}
+
+jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
+	from("LICENSE") {
+		rename { "${it}_$projectName"}
+	}
+	from("CLAUDE.md")
+	from("CREDITS.md")
+}
+
+// configure the maven publication
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			from components.java
+		}
+	}
+
+	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+	repositories {
+		// Add repositories to publish to here.
+		// Notice: This block does NOT have the same function as the block in the top level.
+		// The repositories here will be used for publishing your artifact, not for
+		// retrieving dependencies.
+	}
+}

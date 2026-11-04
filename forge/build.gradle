@@ -1,0 +1,123 @@
+plugins {
+	id 'java'
+	id 'net.minecraftforge.gradle' version '[7.0.17,8)'
+}
+
+group = project.group
+version = project.version
+base.archivesName = "the-nothing-mod-forge"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(project.java_version as int)
+
+// The shared code lives in the root project's src/main (everything) and src/client (client-only); the Fabric-only parts are in
+// folders called "fabric" and are left out here.
+// A file in compat/<version>/ with the same path as a shared file REPLACES the shared one for that version.
+def compatRoot = rootProject.file("compat/${project.compat}")
+def replaced = [] as Set
+compatRoot.eachFileRecurse { f ->
+	if (f.isFile() && f.name.endsWith('.java')) {
+		def rel = f.toPath().toString().substring(compatRoot.toString().length() + 1).replace('\\', '/')
+		replaced << rel.replaceFirst('^[^/]+/', '')
+	}
+}
+// Older Minecraft versions rename some classes. versions.json can list textual renames (source_replacements = "Old=>New;Old2=>New2"),
+// applied to a copy of the shared sources in build/prepared; compat/<version>/ files are written in the target version's own names.
+def replacements = (project.findProperty('source_replacements') ?: '').toString().split(';').collect { it.trim() }.findAll { !it.isEmpty() }.collect {
+	def parts = it.split('=>')
+	[java.util.regex.Pattern.compile('\\b' + java.util.regex.Pattern.quote(parts[0].trim()) + '\\b').pattern(), parts[1].trim()]
+}
+def preparedDir = layout.buildDirectory.dir('prepared/java')
+def sharedMain = rootProject.file('src/main/java')
+def sharedClient = rootProject.file('src/client/java')
+def prepare = tasks.register('prepareSources', Sync) {
+	into preparedDir
+	from(sharedMain)
+	from(sharedClient)
+	exclude '**/fabric/**'
+	exclude { el -> replaced.contains(el.relativePath.pathString) }
+	if (!replacements.isEmpty()) {
+		filter { line ->
+			def out = line
+			replacements.each { r -> out = out.replaceAll(r[0], r[1]) }
+			out
+		}
+	}
+}
+tasks.withType(JavaCompile).configureEach { dependsOn prepare }
+
+sourceSets {
+	main {
+		java {
+			srcDir preparedDir
+			srcDir rootProject.file("compat/${project.compat}/java")
+			srcDir rootProject.file("compat/${project.compat}/client")
+			srcDir rootProject.file("compat/${project.compat}/forge")
+			exclude '**/fabric/**'
+			exclude { el -> !el.file.path.startsWith(compatRoot.path) && replaced.contains(el.relativePath.pathString) }
+		}
+		resources {
+			srcDir rootProject.file('src/main/resources')
+			srcDir rootProject.file('src/client/resources')
+			exclude 'fabric.mod.json'
+		}
+	}
+}
+
+minecraft {
+	runs {
+		configureEach {
+			workingDir = layout.projectDirectory.dir('run')
+		}
+		register('client')
+		register('server') {
+			args '--nogui'
+		}
+	}
+}
+
+repositories {
+	minecraft.mavenizer(it)
+	maven fg.forgeMaven
+	maven fg.minecraftLibsMaven
+	mavenCentral()
+	maven {
+		name = 'Xander Maven' // YetAnotherConfigLib
+		url = 'https://maven.isxander.dev/releases'
+	}
+}
+
+dependencies {
+	implementation minecraft.dependency("net.minecraftforge:forge:${project.forge_version}")
+	// Only to compile the settings screen: YetAnotherConfigLib has no Forge build, so on Forge that screen is never loaded
+	// and the settings are edited in config/the-nothing-mod.json instead.
+	compileOnly "dev.isxander:yet-another-config-lib:${project.yacl_neoforge_version}"
+}
+
+processResources {
+	def props = [version: project.version, minecraft_version: project.minecraft_version, forge_spec: project.forge_spec]
+	def dropList = project.drop_attributes.toString().split(',').collect { it.trim() }.findAll { !it.isEmpty() }
+	inputs.properties props
+	inputs.property 'drop_attributes', dropList
+	filesMatching("META-INF/mods.toml") {
+		expand props
+	}
+	// the mixin config names the Java level the mod is compiled for
+	def javaLevel = project.java_version.toString()
+	inputs.property 'java_level', javaLevel
+	filesMatching('*.mixins.json') {
+		filter { line -> line.replace('JAVA_25', 'JAVA_' + javaLevel) }
+	}
+	// leave out dimension attributes this Minecraft version does not know
+	filesMatching("data/the-nothing-mod/dimension_type/*.json") {
+		filter { line -> dropList.any { line.contains(it) } ? null : line }
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
+jar {
+	from(rootProject.file('LICENSE'))
+	from(rootProject.file('CREDITS.md'))
+}

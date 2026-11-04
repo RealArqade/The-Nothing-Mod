@@ -1,0 +1,51 @@
+The Nothing Mod License
+
+Copyright (c) 2026 RealArqade
+Copyright (c) 2026 Charles Morgan
+
+The copyright of the mod itself and all original content remains with the authors, Charles Morgan and Arqade.
+
+This software is NOT open source. It is provided only to be installed and played, as published by the authors.
+
+Permission is granted to download, install and play this software, for personal, non-commercial purposes only.
+
+You may not:
+
+- Redistribute, republish, mirror, re-upload or share this software, or any part of it, in any form, whether modified or not.
+- Sell this software or any derivative works, or use it commercially in any way.
+- Sublicense this software or include it, or any part of it, in other projects, modpacks or compilations.
+- Modify this software, or create or publish derivative works.
+- Read, view, copy, decompile, disassemble, deobfuscate or otherwise reverse engineer the mod's code, or the contents of the mod's other files (textures, sounds, data, hidden content), or try to extract or work out its source code, assets or hidden content, by any means, except as allowed below.
+- Publish, share or describe anything you obtained in that way (this does not limit what you learn by playing).
+
+Allowed:
+
+- You may unzip (extract) the jar file, for example to look at what it contains.
+- You may read the Markdown (.md) files at the top level of the jar or of the project (such as README, CREDITS and this license).
+- You may read the source code of the custom launcher that the mod sets up (the loader in the alpha-loader folder, which ships inside the jar as orrin/orrin-loader.jar), to check that it is not a virus. This allowance covers that loader only, not the mod's own code (other than the public repository code described under Community bug fixes).
+
+Videos and streams:
+
+- You may make and publish videos, streams, articles, podcasts, images and other content about this software, on any site or platform (YouTube, Twitch, TikTok, social media, blogs and so on), and you may earn money from that content (ads, sponsorships, memberships and so on). This includes gameplay videos, reviews, and videos that explain or discuss the mod's story, secrets and lore, as long as what you show or say comes from playing the mod. Please say what the mod is called and link to its official page where you can.
+- This covers showing and talking about the mod. It does not allow sharing the mod's files, code or extracted assets, and it does not allow publishing anything you got by taking the mod apart in a way this license forbids.
+
+Community bug fixes:
+
+- The public GitHub repository (RealArqade/The-Nothing-Mod) contains only the technical parts of the mod (the loader and platform code, build files and tools), with the story content left out. You may read that code, and modify it on your own computer, only to find and fix technical bugs and to send those fixes back to the authors as pull requests or issues.
+- By sending a contribution you give the authors the right to use, change and include it in the mod and its releases, under this license or any other, without payment. You keep the copyright in what you wrote.
+- This does not allow you to publish or share builds, forks of the mod, or copies of the code anywhere else, and it does not apply to any file that is not in that public repository.
+
+Exceptions: only the authors, and people they have given explicit written permission to, may do any of the things above. Permission must be given by the copyright holders, in writing, for each use.
+
+All rights not expressly granted are reserved.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Third-party libraries and assets included in this software (for example the libraries bundled in the jar) stay under their own
+licenses; see CREDITS.md.

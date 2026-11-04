@@ -1,0 +1,13 @@
+{
+  "type": "the-nothing-mod:t_pale",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:plains",
+      "features": false,
+      "lakes": false,
+      "layers": [ { "block": "minecraft:bedrock", "height": 1 }, { "block": "minecraft:stone", "height": 58 }, { "block": "the-nothing-mod:id_0469", "height": 4 }, { "block": "the-nothing-mod:id_0366", "height": 1 } ],
+      "structure_overrides": []
+    }
+  }
+}

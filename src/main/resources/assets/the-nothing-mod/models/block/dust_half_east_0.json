@@ -1,0 +1,4 @@
+{
+  "parent": "the-nothing-mod:block/dust_half_east",
+  "textures": { "line": { "sprite": "the-nothing-mod:block/dust_line_0", "force_translucent": true } }
+}

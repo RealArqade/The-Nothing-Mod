@@ -1,0 +1,170 @@
+//// The 2D figure code, as a template. tools/Build-Alpha.ps1 fills in the game's scrambled names for each supported version (from
+//// alpha-loader/mappings/<version>.json, made by tools/AnalyzeAlpha.ps1) and compiles one copy per version. A line starting with four
+//// slashes and FILE starts a new file; "(stub)" after the name means it only stands in for the game's own class while compiling and is
+//// left out of the jar. Names in @AT@ signs are replaced.
+//// FILE: @ENTITY@.java (stub)
+// Entity. Compile-time stub: the real class comes from the game.
+public abstract class @ENTITY@ {
+    public @ENTITY@(@WORLD@ world) {
+    }
+    protected abstract void @ENTITYREAD@(@NBT@ tag);
+    protected abstract void @ENTITYWRITE@(@NBT@ tag);
+}
+//// FILE: @WORLD@.java (stub)
+public class @WORLD@ {
+}
+//// FILE: @NBT@.java (stub)
+public class @NBT@ {
+    public void @NBTSETSTRING@(String key, String value) {
+    }
+    public String @NBTGETSTRING@(String key) {
+        return null;
+    }
+}
+//// FILE: @RENDERMANAGER@.java (stub)
+public class @RENDERMANAGER@ {
+    public static @RENDERMANAGER@ @MANAGERINSTANCE@;
+    public float @MANAGERYAW@;
+}
+//// FILE: @RENDER@.java (stub)
+public abstract class @RENDER@ {
+    protected @RENDERMANAGER@ @RENDERMANAGERFIELD@;
+    protected void @RENDERBIND@(String texturePath) {
+    }
+    public abstract void @RENDERDRAW@(@ENTITY@ entity, double x, double y, double z, float yaw, float partialTick);
+    public void @RENDERSETMANAGER@(@RENDERMANAGER@ manager) {
+    }
+}
+//// FILE: @TESS@.java (stub)
+public class @TESS@ {
+    public static final @TESS@ @TESSINSTANCE@ = null;
+    public void @TESSDRAW@() {
+    }
+    public void @TESSSTART@() {
+    }
+    public void @TESSVERTEXUV@(double x, double y, double z, double u, double v) {
+    }
+}
+//// FILE: OrrinSprite_@TAG@.java
+/**
+ * A 2D figure standing in the world: a flat picture that always turns to face you, like the monsters of the 26.3 mod. It does nothing
+ * but stand there (it has no movement of its own and the game's base entity doesn't move by itself), cannot be hurt and does not block
+ * you. Which picture it shows is saved with it ("Sprite"). Registered by OrrinSprites_@TAG@; the world generator writes them into the chunks.
+ */
+public class OrrinSprite_@TAG@ extends @ENTITY@ {
+    public String sprite = "id_0407";
+    public int age;
+
+    public OrrinSprite_@TAG@(@WORLD@ world) {
+        super(world);
+    }
+
+    protected void @ENTITYREAD@(@NBT@ tag) {
+        String s = tag.@NBTGETSTRING@("Sprite");
+        if (s != null && !s.isEmpty()) {
+            sprite = s;
+        }
+    }
+
+    protected void @ENTITYWRITE@(@NBT@ tag) {
+        tag.@NBTSETSTRING@("Sprite", sprite);
+    }
+}
+//// FILE: OrrinSpriteRender_@TAG@.java
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+import org.lwjgl.opengl.GL11;
+
+/**
+ * Draws an OrrinSprite as one flat, full-bright picture that turns to face the camera (sideways only, so it stays upright). The pictures
+ * are in /orrin/sprites/<name>.png (padded to power-of-two sizes); sprites.txt lists each one: name, width, height, padded width, padded
+ * height and how many blocks tall it is drawn.
+ */
+public class OrrinSpriteRender_@TAG@ extends @RENDER@ {
+    private static Map<String, float[]> info;
+    private static int ticks;
+
+    private static synchronized float[] info(String name) {
+        if (info == null) {
+            info = new HashMap<String, float[]>();
+            try {
+                InputStream in = OrrinSpriteRender_@TAG@.class.getResourceAsStream("/orrin/sprites/sprites.txt");
+                BufferedReader r = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+                String line;
+                while ((line = r.readLine()) != null) {
+                    String[] p = line.trim().split("\\s+");
+                    if (p.length == 6) {
+                        info.put(p[0], new float[]{Float.parseFloat(p[1]), Float.parseFloat(p[2]), Float.parseFloat(p[3]),
+                                Float.parseFloat(p[4]), Float.parseFloat(p[5])});
+                    }
+                }
+                r.close();
+            } catch (Exception e) {
+                // no list: nothing is drawn
+            }
+        }
+        return info.get(name);
+    }
+
+    public void @RENDERDRAW@(@ENTITY@ entity, double x, double y, double z, float yaw, float partialTick) {
+        OrrinSprite_@TAG@ sprite = (OrrinSprite_@TAG@) entity;
+        float[] f = info(sprite.sprite);
+        if (f == null) {
+            return;
+        }
+        float height = f[4];
+        float half = height * f[0] / f[1] / 2.0F;
+        float uMax = f[0] / f[2];
+        float vMax = f[1] / f[3];
+        // The bobbing needs a clock; the figure has none of its own, so count drawings (about the same rate for everyone).
+        ticks++;
+        float bob = (float) Math.sin(ticks * 0.003 + (x + z) * 0.7) * 0.06F;
+
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float) x, (float) y + bob, (float) z);
+        GL11.glRotatef(180.0F - this.@RENDERMANAGERFIELD@.@MANAGERYAW@, 0.0F, 1.0F, 0.0F);
+        GL11.glDisable(GL11.GL_LIGHTING);
+        GL11.glDisable(GL11.GL_CULL_FACE);
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        this.@RENDERBIND@("/orrin/sprites/" + sprite.sprite + ".png");
+        @TESS@ t = @TESS@.@TESSINSTANCE@;
+        t.@TESSSTART@();
+        t.@TESSVERTEXUV@(-half, 0.0, 0.0, 0.0, vMax);
+        t.@TESSVERTEXUV@(half, 0.0, 0.0, uMax, vMax);
+        t.@TESSVERTEXUV@(half, height, 0.0, uMax, 0.0);
+        t.@TESSVERTEXUV@(-half, height, 0.0, 0.0, 0.0);
+        t.@TESSDRAW@();
+        GL11.glDisable(GL11.GL_BLEND);
+        GL11.glEnable(GL11.GL_CULL_FACE);
+        GL11.glEnable(GL11.GL_LIGHTING);
+        GL11.glPopMatrix();
+    }
+}
+//// FILE: OrrinSprites_@TAG@.java
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.Map;
+
+/**
+ * Teaches the game about the new 2D figure, before the game starts: its name goes into the game's entity list (so saved worlds can load
+ * it) and its drawing code into the render manager. Called by the Orrin loader by name (it can't be named from the loader's own package).
+ */
+public class OrrinSprites_@TAG@ {
+    public static void register() throws Exception {
+        Method add = Class.forName("@ENTITYLIST@").getDeclaredMethod("@REGISTERMETHOD@", Class.class, String.class);
+        add.setAccessible(true);
+        add.invoke(null, OrrinSprite_@TAG@.class, "OrrinSprite");
+        Field renderers = @RENDERMANAGER@.class.getDeclaredField("@MANAGERMAP@");
+        renderers.setAccessible(true);
+        OrrinSpriteRender_@TAG@ render = new OrrinSpriteRender_@TAG@();
+        @SuppressWarnings("unchecked")
+        Map<Class<?>, Object> map = (Map<Class<?>, Object>) renderers.get(@RENDERMANAGER@.@MANAGERINSTANCE@);
+        map.put(OrrinSprite_@TAG@.class, render);
+        render.@RENDERSETMANAGER@(@RENDERMANAGER@.@MANAGERINSTANCE@);
+    }
+}

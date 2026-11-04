@@ -1,0 +1,23 @@
+pluginManagement {
+	repositories {
+		maven {
+			name = 'Fabric'
+			url = 'https://maven.fabricmc.net/'
+		}
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+
+// Should match your modid
+rootProject.name = 'the-nothing-mod'
+
+// The other loaders compile the same shared sources (src/main and src/client) with their own thin layer.
+include 'neoforge'
+include 'forge'
+
+// -Pno_fabric=true builds only the NeoForge/Forge subprojects: the root project is the Fabric (Loom) one, which cannot be set up
+// for Minecraft versions older than 26.1, so for those it is swapped for an empty build file.
+if (settings.providers.gradleProperty('no_fabric').getOrElse('false') == 'true') {
+	rootProject.buildFileName = 'build.none.gradle'
+}

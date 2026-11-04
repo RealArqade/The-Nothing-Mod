@@ -1,0 +1,4228 @@
+[
+    {
+        "id":  "id_0732",
+        "name":  "Name 0008",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d01"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#5E7480",
+                    "c2":  "#CFD3D0",
+                    "f":  "eyes2"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0731",
+        "name":  "Name 0260",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d01"
+                 ],
+        "texture":  [
+                        24,
+                        30
+                    ],
+        "height":  1.2,
+        "hitbox":  [
+                       0.6,
+                       1.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "window",
+                    "c1":  "#5E7480",
+                    "c2":  "#CFD3D0",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0730",
+        "name":  "Name 0129",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d02"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#C9A441",
+                    "c2":  "#2A1A1A",
+                    "f":  "mouthO"
+                }
+    },
+    {
+        "id":  "id_0733",
+        "name":  "Name 0215",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d02"
+                 ],
+        "texture":  [
+                        24,
+                        60
+                    ],
+        "height":  2.5,
+        "hitbox":  [
+                       0.7,
+                       2.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "pillar",
+                    "c1":  "#C9A441",
+                    "c2":  "#2A1A1A",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0736",
+        "name":  "Name 0647",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "d03"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#D8D2BC",
+                    "c2":  "#3A3A38",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0735",
+        "name":  "Name 0221",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d03"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#D8D2BC",
+                    "c2":  "#3A3A38",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0734",
+        "name":  "Name 0088",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "d04"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#E4E2D8",
+                    "c2":  "#A82020",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0729",
+        "name":  "Name 0217",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d04"
+                 ],
+        "texture":  [
+                        24,
+                        44
+                    ],
+        "height":  1.8,
+        "hitbox":  [
+                       0.6,
+                       1.8
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "dress",
+                    "c1":  "#E4E2D8",
+                    "c2":  "#A82020",
+                    "f":  "veil"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0723",
+        "name":  "Name 0472",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "d05"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  5,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#8A7A52",
+                    "c2":  "#E8E4D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0728",
+        "name":  "Name 0551",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d05"
+                 ],
+        "texture":  [
+                        24,
+                        60
+                    ],
+        "height":  2.5,
+        "hitbox":  [
+                       0.7,
+                       2.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "pillar",
+                    "c1":  "#8A7A52",
+                    "c2":  "#E8E4D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0737",
+        "name":  "Name 0226",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "d06"
+                 ],
+        "texture":  [
+                        26,
+                        48
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.7,
+                       1.9
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  1,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "hunched",
+                    "c1":  "#8E8E88",
+                    "c2":  "#5E7480",
+                    "f":  "eye1"
+                }
+    },
+    {
+        "id":  "id_0748",
+        "name":  "Name 0596",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d06"
+                 ],
+        "texture":  [
+                        32,
+                        44
+                    ],
+        "height":  2,
+        "hitbox":  [
+                       0.9,
+                       2
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "blob",
+                    "c1":  "#8E8E88",
+                    "c2":  "#5E7480",
+                    "f":  "eyes3"
+                }
+    },
+    {
+        "id":  "id_0746",
+        "name":  "Name 0177",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d07"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#1A1E22",
+                    "c2":  "#C9A441",
+                    "f":  "hat"
+                }
+    },
+    {
+        "id":  "id_0749",
+        "name":  "Name 0258",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d07"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#1A1E22",
+                    "c2":  "#C9A441",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0752",
+        "name":  "Name 0396",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d08"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#6A6A66",
+                    "c2":  "#E0A030",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0751",
+        "name":  "Name 0223",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d08"
+                 ],
+        "texture":  [
+                        24,
+                        44
+                    ],
+        "height":  1.8,
+        "hitbox":  [
+                       0.6,
+                       1.8
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "dress",
+                    "c1":  "#6A6A66",
+                    "c2":  "#E0A030",
+                    "f":  "hair"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0740",
+        "name":  "Name 0165",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "d09"
+                 ],
+        "texture":  [
+                        26,
+                        48
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.7,
+                       1.9
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "hunched",
+                    "c1":  "#4A4A48",
+                    "c2":  "#5E7480",
+                    "f":  "lantern"
+                }
+    },
+    {
+        "id":  "id_0738",
+        "name":  "Name 0492",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d09"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#4A4A48",
+                    "c2":  "#5E7480",
+                    "f":  "pole"
+                }
+    },
+    {
+        "id":  "id_0744",
+        "name":  "Name 0401",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d10"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  5,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#C9A441",
+                    "c2":  "#2A2420",
+                    "f":  "lantern"
+                }
+    },
+    {
+        "id":  "id_0742",
+        "name":  "Name 0269",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d10"
+                 ],
+        "texture":  [
+                        22,
+                        36
+                    ],
+        "height":  1.5,
+        "hitbox":  [
+                       0.7,
+                       1.5
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "stack",
+                    "c1":  "#C9A441",
+                    "c2":  "#2A2420",
+                    "f":  "eye1"
+                }
+    },
+    {
+        "id":  "id_0701",
+        "name":  "Name 0210",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d11"
+                 ],
+        "texture":  [
+                        28,
+                        28
+                    ],
+        "height":  1.2,
+        "hitbox":  [
+                       0.7,
+                       1.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "chair",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#2A2A38",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0699",
+        "name":  "Name 0032",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "d11"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  2,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#2A2A38",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0704",
+        "name":  "Name 0187",
+        "behavior":  "CORRUPT",
+        "dims":  [
+                     "d12"
+                 ],
+        "texture":  [
+                        26,
+                        48
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.7,
+                       1.9
+                   ],
+        "speed":  0.14,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "hunched",
+                    "c1":  "#8A8A84",
+                    "c2":  "#3A2E22",
+                    "f":  "pole"
+                }
+    },
+    {
+        "id":  "id_0703",
+        "name":  "Name 0069",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d12"
+                 ],
+        "texture":  [
+                        24,
+                        60
+                    ],
+        "height":  2.5,
+        "hitbox":  [
+                       0.7,
+                       2.5
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "pillar",
+                    "c1":  "#8A8A84",
+                    "c2":  "#3A2E22",
+                    "f":  "eye1"
+                }
+    },
+    {
+        "id":  "id_0693",
+        "name":  "Name 0395",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d13"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#8A7A62",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0694",
+        "name":  "Name 0179",
+        "behavior":  "CORRUPT",
+        "dims":  [
+                     "d13"
+                 ],
+        "texture":  [
+                        22,
+                        36
+                    ],
+        "height":  1.5,
+        "hitbox":  [
+                       0.7,
+                       1.5
+                   ],
+        "speed":  0.14,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "stack",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#8A7A62",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0697",
+        "name":  "Name 0110",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d14"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#3A4A5A",
+                    "c2":  "#CFCBC0",
+                    "f":  "hat"
+                }
+    },
+    {
+        "id":  "id_0696",
+        "name":  "Name 0020",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d14"
+                 ],
+        "texture":  [
+                        24,
+                        56
+                    ],
+        "height":  2.2,
+        "hitbox":  [
+                       0.7,
+                       2.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "door",
+                    "c1":  "#3A4A5A",
+                    "c2":  "#CFCBC0",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0678",
+        "name":  "Name 0512",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d15"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#7A3A2A",
+                    "c2":  "#C9A441",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0716",
+        "name":  "Name 0388",
+        "behavior":  "CORRUPT",
+        "dims":  [
+                     "d15"
+                 ],
+        "texture":  [
+                        32,
+                        44
+                    ],
+        "height":  2,
+        "hitbox":  [
+                       0.9,
+                       2
+                   ],
+        "speed":  0.14,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "blob",
+                    "c1":  "#7A3A2A",
+                    "c2":  "#C9A441",
+                    "f":  "eye1"
+                }
+    },
+    {
+        "id":  "id_0721",
+        "name":  "Name 0449",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d16"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#7A7A74",
+                    "c2":  "#C9A441",
+                    "f":  {
+
+                          }
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0719",
+        "name":  "Name 0147",
+        "behavior":  "FLEE",
+        "dims":  [
+                     "d16"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0.28,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#7A7A74",
+                    "c2":  "#C9A441",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0709",
+        "name":  "The Surveyor\u0027s Twin",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d17"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#9A9A94",
+                    "c2":  "#2A2A28",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0708",
+        "name":  "Name 0148",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d17"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#9A9A94",
+                    "c2":  "#2A2A28",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0710",
+        "name":  "Name 0503",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "d18"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#D0CCBE",
+                    "c2":  "#A82020",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0712",
+        "name":  "Name 0238",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "d18"
+                 ],
+        "texture":  [
+                        24,
+                        60
+                    ],
+        "height":  2.5,
+        "hitbox":  [
+                       0.7,
+                       2.5
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "pillar",
+                    "c1":  "#D0CCBE",
+                    "c2":  "#A82020",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0711",
+        "name":  "Name 0394",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d19"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#8A8A84",
+                    "c2":  "#E8E4D8",
+                    "f":  "glasses"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0713",
+        "name":  "Name 0239",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d19"
+                 ],
+        "texture":  [
+                        24,
+                        30
+                    ],
+        "height":  1.2,
+        "hitbox":  [
+                       0.6,
+                       1.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "window",
+                    "c1":  "#8A8A84",
+                    "c2":  "#E8E4D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0707",
+        "name":  "Name 0266",
+        "behavior":  "FLEE",
+        "dims":  [
+                     "d20"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.28,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#B8B09A",
+                    "c2":  "#A82020",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0714",
+        "name":  "Name 0001",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "d20"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  1,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#B8B09A",
+                    "c2":  "#A82020",
+                    "f":  "veil"
+                }
+    },
+    {
+        "id":  "id_0720",
+        "name":  "Name 0390",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d21"
+                 ],
+        "texture":  [
+                        32,
+                        44
+                    ],
+        "height":  2,
+        "hitbox":  [
+                       0.9,
+                       2
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "blob",
+                    "c1":  "#C9A441",
+                    "c2":  "#6A3A22",
+                    "f":  "smile"
+                }
+    },
+    {
+        "id":  "id_0717",
+        "name":  "Name 0108",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d21"
+                 ],
+        "texture":  [
+                        28,
+                        28
+                    ],
+        "height":  1.2,
+        "hitbox":  [
+                       0.7,
+                       1.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "chair",
+                    "c1":  "#C9A441",
+                    "c2":  "#6A3A22",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0695",
+        "name":  "The Word0899\u0027s Voice",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d22"
+                 ],
+        "texture":  [
+                        24,
+                        44
+                    ],
+        "height":  1.8,
+        "hitbox":  [
+                       0.6,
+                       1.8
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "dress",
+                    "c1":  "#2A2A38",
+                    "c2":  "#CFCBC0",
+                    "f":  "eyes2"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0698",
+        "name":  "Name 0157",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "d22"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#2A2A38",
+                    "c2":  "#CFCBC0",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0702",
+        "name":  "Name 0506",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d23"
+                 ],
+        "texture":  [
+                        24,
+                        44
+                    ],
+        "height":  1.8,
+        "hitbox":  [
+                       0.6,
+                       1.8
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "dress",
+                    "c1":  "#C9A441",
+                    "c2":  "#7A3A2A",
+                    "f":  "pie"
+                }
+    },
+    {
+        "id":  "id_0743",
+        "name":  "Name 0550",
+        "behavior":  "CORRUPT",
+        "dims":  [
+                     "d23"
+                 ],
+        "texture":  [
+                        22,
+                        36
+                    ],
+        "height":  1.5,
+        "hitbox":  [
+                       0.7,
+                       1.5
+                   ],
+        "speed":  0.14,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "stack",
+                    "c1":  "#C9A441",
+                    "c2":  "#7A3A2A",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0726",
+        "name":  "Name 0505",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d24"
+                 ],
+        "texture":  [
+                        32,
+                        44
+                    ],
+        "height":  2,
+        "hitbox":  [
+                       0.9,
+                       2
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "blob",
+                    "c1":  "#5A5A58",
+                    "c2":  "#E8E4D8",
+                    "f":  "mouthO"
+                }
+    },
+    {
+        "id":  "id_0653",
+        "name":  "Name 0391",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d24"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#5A5A58",
+                    "c2":  "#E8E4D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0659",
+        "name":  "Name 0439",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d25"
+                 ],
+        "texture":  [
+                        26,
+                        48
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.7,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "hunched",
+                    "c1":  "#5F7F5F",
+                    "c2":  "#3A5040",
+                    "f":  {
+
+                          }
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0662",
+        "name":  "Name 0155",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d25"
+                 ],
+        "texture":  [
+                        24,
+                        32
+                    ],
+        "height":  1.3,
+        "hitbox":  [
+                       0.6,
+                       1.3
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "bell",
+                    "c1":  "#5F7F5F",
+                    "c2":  "#3A5040",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0657",
+        "name":  "Name 0611",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d26"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#0A0A0A",
+                    "c2":  "#E8E4D8",
+                    "f":  "mouthO"
+                }
+    },
+    {
+        "id":  "id_0661",
+        "name":  "Name 0276",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d26"
+                 ],
+        "texture":  [
+                        24,
+                        60
+                    ],
+        "height":  2.5,
+        "hitbox":  [
+                       0.7,
+                       2.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "pillar",
+                    "c1":  "#0A0A0A",
+                    "c2":  "#E8E4D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0660",
+        "name":  "Name 0441",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "d27"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  2,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#9A8444",
+                    "f":  "glasses"
+                }
+    },
+    {
+        "id":  "id_0681",
+        "name":  "Name 0287",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d27"
+                 ],
+        "texture":  [
+                        22,
+                        36
+                    ],
+        "height":  1.5,
+        "hitbox":  [
+                       0.7,
+                       1.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "stack",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#9A8444",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0682",
+        "name":  "Name 0151",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d28"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#3E4A50",
+                    "c2":  "#CFD3D0",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0683",
+        "name":  "Name 0201",
+        "behavior":  "FLEE",
+        "dims":  [
+                     "d28"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0.28,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#3E4A50",
+                    "c2":  "#CFD3D0",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0679",
+        "name":  "Name 0434",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "d29"
+                 ],
+        "texture":  [
+                        26,
+                        48
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.7,
+                       1.9
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "hunched",
+                    "c1":  "#7A3A22",
+                    "c2":  "#E0A030",
+                    "f":  "lantern"
+                }
+    },
+    {
+        "id":  "id_0680",
+        "name":  "Name 0087",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d29"
+                 ],
+        "texture":  [
+                        24,
+                        60
+                    ],
+        "height":  2.5,
+        "hitbox":  [
+                       0.7,
+                       2.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "pillar",
+                    "c1":  "#7A3A22",
+                    "c2":  "#E0A030",
+                    "f":  "eye1"
+                }
+    },
+    {
+        "id":  "id_0684",
+        "name":  "Name 0619",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d30"
+                 ],
+        "texture":  [
+                        24,
+                        44
+                    ],
+        "height":  1.8,
+        "hitbox":  [
+                       0.6,
+                       1.8
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "dress",
+                    "c1":  "#8A8A84",
+                    "c2":  "#2A2A28",
+                    "f":  "mouthO"
+                }
+    },
+    {
+        "id":  "id_0688",
+        "name":  "Name 0199",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d30"
+                 ],
+        "texture":  [
+                        28,
+                        28
+                    ],
+        "height":  1.2,
+        "hitbox":  [
+                       0.7,
+                       1.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "chair",
+                    "c1":  "#8A8A84",
+                    "c2":  "#2A2A28",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0689",
+        "name":  "Name 0197",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d31"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#8C8A84",
+                    "c2":  "#1A1A1A",
+                    "f":  "glasses"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0685",
+        "name":  "Name 0057",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d31"
+                 ],
+        "texture":  [
+                        22,
+                        36
+                    ],
+        "height":  1.5,
+        "hitbox":  [
+                       0.7,
+                       1.5
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  2,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "stack",
+                    "c1":  "#8C8A84",
+                    "c2":  "#1A1A1A",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0686",
+        "name":  "Name 0279",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "d32"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  2,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#6A1A1A",
+                    "c2":  "#0A0A0A",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0687",
+        "name":  "Name 0409",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d32"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#6A1A1A",
+                    "c2":  "#0A0A0A",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0668",
+        "name":  "Name 0615",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d33"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#5A5A58",
+                    "c2":  "#C9A441",
+                    "f":  "smile"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0664",
+        "name":  "Name 0283",
+        "behavior":  "FLEE",
+        "dims":  [
+                     "d33"
+                 ],
+        "texture":  [
+                        24,
+                        44
+                    ],
+        "height":  1.8,
+        "hitbox":  [
+                       0.6,
+                       1.8
+                   ],
+        "speed":  0.28,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "dress",
+                    "c1":  "#5A5A58",
+                    "c2":  "#C9A441",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0665",
+        "name":  "Name 0184",
+        "behavior":  "CORRUPT",
+        "dims":  [
+                     "d34"
+                 ],
+        "texture":  [
+                        24,
+                        44
+                    ],
+        "height":  1.8,
+        "hitbox":  [
+                       0.6,
+                       1.8
+                   ],
+        "speed":  0.14,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "dress",
+                    "c1":  "#8A2A1A",
+                    "c2":  "#0B0B0B",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0666",
+        "name":  "Name 0185",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "d34"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  5,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#8A2A1A",
+                    "c2":  "#0B0B0B",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0670",
+        "name":  "Name 0416",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d35"
+                 ],
+        "texture":  [
+                        24,
+                        60
+                    ],
+        "height":  2.5,
+        "hitbox":  [
+                       0.7,
+                       2.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "pillar",
+                    "c1":  "#2A2A38",
+                    "c2":  "#E4E2D8",
+                    "f":  "eyes2"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0676",
+        "name":  "Name 0112",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d35"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#2A2A38",
+                    "c2":  "#E4E2D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0671",
+        "name":  "Name 0117",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d36"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#9A9A94",
+                    "c2":  "#2A2A28",
+                    "f":  "smile"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0672",
+        "name":  "Name 0104",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d36"
+                 ],
+        "texture":  [
+                        24,
+                        30
+                    ],
+        "height":  1.2,
+        "hitbox":  [
+                       0.6,
+                       1.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "window",
+                    "c1":  "#9A9A94",
+                    "c2":  "#2A2A28",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0673",
+        "name":  "Name 0203",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "d37"
+                 ],
+        "texture":  [
+                        26,
+                        48
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.7,
+                       1.9
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  2,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "hunched",
+                    "c1":  "#D8D2BC",
+                    "c2":  "#A82020",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0675",
+        "name":  "Name 0190",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "d37"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#D8D2BC",
+                    "c2":  "#A82020",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0674",
+        "name":  "Name 0033",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d38"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#4A3A28",
+                    "c2":  "#E0A030",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0669",
+        "name":  "Name 0630",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d38"
+                 ],
+        "texture":  [
+                        24,
+                        30
+                    ],
+        "height":  1.2,
+        "hitbox":  [
+                       0.6,
+                       1.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "window",
+                    "c1":  "#4A3A28",
+                    "c2":  "#E0A030",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0667",
+        "name":  "Name 0060",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "d39"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#3A3A48",
+                    "c2":  "#C8C4FF",
+                    "f":  "glasses"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0677",
+        "name":  "Name 0610",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "d39"
+                 ],
+        "texture":  [
+                        24,
+                        32
+                    ],
+        "height":  1.3,
+        "hitbox":  [
+                       0.6,
+                       1.3
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "bell",
+                    "c1":  "#3A3A48",
+                    "c2":  "#C8C4FF",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0690",
+        "name":  "Name 0105",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "d40"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  5,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#161616",
+                    "c2":  "#E8E4D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0724",
+        "name":  "Name 0554",
+        "behavior":  "LURK",
+        "dims":  [
+                     "d40"
+                 ],
+        "texture":  [
+                        24,
+                        60
+                    ],
+        "height":  2.5,
+        "hitbox":  [
+                       0.7,
+                       2.5
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "pillar",
+                    "c1":  "#161616",
+                    "c2":  "#E8E4D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0718",
+        "name":  "Name 0433",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "v01"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#E4E2D8",
+                    "c2":  "#0A0A0A",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0715",
+        "name":  "Name 0106",
+        "behavior":  "FLEE",
+        "dims":  [
+                     "v01"
+                 ],
+        "texture":  [
+                        32,
+                        44
+                    ],
+        "height":  2,
+        "hitbox":  [
+                       0.9,
+                       2
+                   ],
+        "speed":  0.28,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "blob",
+                    "c1":  "#E4E2D8",
+                    "c2":  "#0A0A0A",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0706",
+        "name":  "Name 0075",
+        "behavior":  "LURK",
+        "dims":  [
+                     "v02"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#5A5A58",
+                    "c2":  "#0A0A0A",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0691",
+        "name":  "Name 0536",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "v02"
+                 ],
+        "texture":  [
+                        16,
+                        28
+                    ],
+        "height":  1.1,
+        "hitbox":  [
+                       0.5,
+                       1.1
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "child",
+                    "c1":  "#5A5A58",
+                    "c2":  "#0A0A0A",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0692",
+        "name":  "Name 0101",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "v03"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#D8D2BC",
+                    "c2":  "#A82020",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0705",
+        "name":  "Name 0161",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "v03"
+                 ],
+        "texture":  [
+                        22,
+                        36
+                    ],
+        "height":  1.5,
+        "hitbox":  [
+                       0.7,
+                       1.5
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "stack",
+                    "c1":  "#D8D2BC",
+                    "c2":  "#A82020",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0700",
+        "name":  "Name 0043",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "v04"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0471",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#2A2A28",
+                    "f":  "glasses"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0741",
+        "name":  "Name 0241",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "v04"
+                 ],
+        "texture":  [
+                        24,
+                        30
+                    ],
+        "height":  1.2,
+        "hitbox":  [
+                       0.6,
+                       1.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "window",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#2A2A28",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0739",
+        "name":  "Name 0421",
+        "behavior":  "LURK",
+        "dims":  [
+                     "v05"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0586",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#9A9A94",
+                    "c2":  "#161616",
+                    "f":  "eyes3"
+                }
+    },
+    {
+        "id":  "id_0745",
+        "name":  "Name 0648",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "v05"
+                 ],
+        "texture":  [
+                        24,
+                        56
+                    ],
+        "height":  2.2,
+        "hitbox":  [
+                       0.7,
+                       2.2
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "door",
+                    "c1":  "#9A9A94",
+                    "c2":  "#161616",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0750",
+        "name":  "Name 0517",
+        "behavior":  "CORRUPT",
+        "dims":  [
+                     "v06"
+                 ],
+        "texture":  [
+                        26,
+                        48
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.7,
+                       1.9
+                   ],
+        "speed":  0.14,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0485",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "hunched",
+                    "c1":  "#6A5E50",
+                    "c2":  "#2A2420",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0747",
+        "name":  "Name 0516",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "v06"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  2,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#6A5E50",
+                    "c2":  "#2A2420",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0727",
+        "name":  "Name 0063",
+        "behavior":  "SPEAKER",
+        "dims":  [
+                     "v07"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0605",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#B0AC9E",
+                    "c2":  "#2A2A38",
+                    "f":  "eyes2"
+                },
+        "lines": ["placeholder"]
+    },
+    {
+        "id":  "id_0725",
+        "name":  "Name 0399",
+        "behavior":  "BLINK",
+        "dims":  [
+                     "v07"
+                 ],
+        "texture":  [
+                        32,
+                        44
+                    ],
+        "height":  2,
+        "hitbox":  [
+                       0.9,
+                       2
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "DARKNESS",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "blob",
+                    "c1":  "#B0AC9E",
+                    "c2":  "#2A2A38",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0722",
+        "name":  "Name 0523",
+        "behavior":  "HUNT",
+        "dims":  [
+                     "v08"
+                 ],
+        "texture":  [
+                        26,
+                        48
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.7,
+                       1.9
+                   ],
+        "speed":  0.2,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  false,
+        "effect":  "NAUSEA",
+        "effectTicks":  120,
+        "scare":  3,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0292",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "hunched",
+                    "c1":  "#161616",
+                    "c2":  "#E8E4D8",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0658",
+        "name":  "Name 0543",
+        "behavior":  "LURK",
+        "dims":  [
+                     "v08"
+                 ],
+        "texture":  [
+                        32,
+                        44
+                    ],
+        "height":  2,
+        "hitbox":  [
+                       0.9,
+                       2
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "HUNGER",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "blob",
+                    "c1":  "#161616",
+                    "c2":  "#E8E4D8",
+                    "f":  "eyes3"
+                }
+    },
+    {
+        "id":  "id_0656",
+        "name":  "Name 0125",
+        "behavior":  "FOLLOW",
+        "dims":  [
+                     "v09"
+                 ],
+        "texture":  [
+                        22,
+                        44
+                    ],
+        "height":  1.9,
+        "hitbox":  [
+                       0.6,
+                       1.9
+                   ],
+        "speed":  0.22,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  false,
+        "behind":  true,
+        "effect":  "WEAKNESS",
+        "effectTicks":  120,
+        "scare":  4,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0455",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "person",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#8A8A84",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0654",
+        "name":  "Name 0073",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "v09"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "MINING_FATIGUE",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#CFCBC0",
+                    "c2":  "#8A8A84",
+                    "f":  {
+
+                          }
+                }
+    },
+    {
+        "id":  "id_0655",
+        "name":  "Name 0124",
+        "behavior":  "WATCH",
+        "dims":  [
+                     "v10"
+                 ],
+        "texture":  [
+                        26,
+                        100
+                    ],
+        "height":  3.5,
+        "hitbox":  [
+                       0.7,
+                       3.5
+                   ],
+        "speed":  0,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "SLOWNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0171",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "tall",
+                    "c1":  "#E8E4D8",
+                    "c2":  "#0A0A0A",
+                    "f":  "eyes2"
+                }
+    },
+    {
+        "id":  "id_0663",
+        "name":  "Name 0254",
+        "behavior":  "LURK",
+        "dims":  [
+                     "v10"
+                 ],
+        "texture":  [
+                        8,
+                        80
+                    ],
+        "height":  3,
+        "hitbox":  [
+                       0.3,
+                       3
+                   ],
+        "speed":  0.12,
+        "lifetime":  2400,
+        "avgMinutes":  4,
+        "cooldown":  1800,
+        "min":  14,
+        "max":  30,
+        "needsView":  true,
+        "behind":  false,
+        "effect":  "BLINDNESS",
+        "effectTicks":  120,
+        "scare":  0,
+        "glitch":  0.15,
+        "drops":  [
+                      [
+                          "id_0267",
+                          0.12
+                      ]
+                  ],
+        "art":  {
+                    "kit":  "rod",
+                    "c1":  "#E8E4D8",
+                    "c2":  "#0A0A0A",
+                    "f":  {
+
+                          }
+                }
+    }
+]

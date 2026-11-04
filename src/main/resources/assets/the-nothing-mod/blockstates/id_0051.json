@@ -1,0 +1,329 @@
+{
+    "multipart":  [
+                      {
+                          "when":  {
+                                       "OR":  [
+                                                  {
+                                                      "north":  "none",
+                                                      "east":  "none",
+                                                      "south":  "none",
+                                                      "west":  "none",
+                                                      "north_east":  "false",
+                                                      "south_east":  "false",
+                                                      "south_west":  "false",
+                                                      "north_west":  "false"
+                                                  },
+                                                  {
+                                                      "east":  "side|up",
+                                                      "north":  "side|up"
+                                                  },
+                                                  {
+                                                      "east":  "side|up",
+                                                      "south":  "side|up"
+                                                  },
+                                                  {
+                                                      "south":  "side|up",
+                                                      "west":  "side|up"
+                                                  },
+                                                  {
+                                                      "north":  "side|up",
+                                                      "west":  "side|up"
+                                                  },
+                                                  {
+                                                      "north_east":  "true"
+                                                  },
+                                                  {
+                                                      "south_east":  "true"
+                                                  },
+                                                  {
+                                                      "south_west":  "true"
+                                                  },
+                                                  {
+                                                      "north_west":  "true"
+                                                  }
+                                              ]
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_0"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_0",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_0",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_0",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_1"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_1",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_1",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_1",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_2"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_2",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_2",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_2",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_3"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_3",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_3",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_dot_3",
+                                            "y":  270
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "north":  "side|up"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_north_0"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_north_1"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_north_2"
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "east":  "side|up"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_east_0",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_east_1",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_east_2",
+                                            "y":  90
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "south":  "side|up"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_south_0",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_south_1",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_south_2",
+                                            "y":  180
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "west":  "side|up"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_west_0",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_west_1",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_half_west_2",
+                                            "y":  270
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "north":  "up"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_0"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_1"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_2"
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "east":  "up"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_0",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_1",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_2",
+                                            "y":  90
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "south":  "up"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_0",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_1",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_2",
+                                            "y":  180
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "west":  "up"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_0",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_1",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_up_2",
+                                            "y":  270
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "north_west":  "true"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_north_west_0"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_north_west_1"
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_north_west_2"
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "north_east":  "true"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_north_east_0",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_north_east_1",
+                                            "y":  90
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_north_east_2",
+                                            "y":  90
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "south_east":  "true"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_south_east_0",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_south_east_1",
+                                            "y":  180
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_south_east_2",
+                                            "y":  180
+                                        }
+                                    ]
+                      },
+                      {
+                          "when":  {
+                                       "south_west":  "true"
+                                   },
+                          "apply":  [
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_south_west_0",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_south_west_1",
+                                            "y":  270
+                                        },
+                                        {
+                                            "model":  "the-nothing-mod:block/dust_diagonal_south_west_2",
+                                            "y":  270
+                                        }
+                                    ]
+                      }
+                  ]
+}

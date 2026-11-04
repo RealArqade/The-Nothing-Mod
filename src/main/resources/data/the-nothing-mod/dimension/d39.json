@@ -1,0 +1,13 @@
+{
+  "type": "the-nothing-mod:t_dusk",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:the_end",
+      "features": false,
+      "lakes": false,
+      "layers": [ { "block": "minecraft:bedrock", "height": 1 }, { "block": "minecraft:stone", "height": 58 }, { "block": "the-nothing-mod:id_0435", "height": 4 }, { "block": "the-nothing-mod:id_0196", "height": 1 } ],
+      "structure_overrides": []
+    }
+  }
+}

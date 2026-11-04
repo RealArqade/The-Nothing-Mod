@@ -1,0 +1,112 @@
+package com.realarqade.thenothingmod.client;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.realarqade.thenothingmod.ApparitionProperties;
+import com.realarqade.thenothingmod.StalkerProperties;
+import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.Identifier;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import org.joml.Quaternionf;
+
+/**
+ * Draws any of the mod's monsters as a flat 2D picture that always turns to face the camera, full-bright. The picture comes
+ * from {@link GlitchTexture}, a live texture whose pixels are corrupted about 60 times a second; this class only decides how
+ * strong the glitching is, shakes the whole sprite a little, and makes it vanish for a split second now and then.
+ * The closer you are, the stronger it gets, with short random bursts on top. How glitchy a monster is when you are far away is
+ * {@code baseGlitch}; overall speed and strength are {@link StalkerProperties#GLITCH_SPEED} and
+ * {@link StalkerProperties#GLITCH_STRENGTH}.
+ */
+public class SpriteMonsterRenderer<T extends Entity> extends EntityRenderer<T, GlitchStalkerRenderState> {
+    private static final int FULL_BRIGHT = 0xF000F0;
+    /** Blocks away at which the glitching is back to its calmest. */
+    private static final float GLITCH_RANGE = 24f;
+
+    private final String name;
+    private final ApparitionProperties.Sprite sprite;
+    private final float baseGlitch;
+
+    /**
+     * @param name       the monster's name: its texture is {@code textures/entity/<name>.png}
+     * @param baseGlitch how glitchy it is when far away, 0 (clean) to about 0.5
+     */
+    public SpriteMonsterRenderer(EntityRendererProvider.Context context, String name, ApparitionProperties.Sprite sprite, float baseGlitch) {
+        super(context);
+        this.name = name;
+        this.sprite = sprite;
+        this.baseGlitch = baseGlitch;
+        this.shadowRadius = 0.0F; // a flat picture doesn't cast a round shadow
+    }
+
+    @Override
+    public GlitchStalkerRenderState createRenderState() {
+        return new GlitchStalkerRenderState();
+    }
+
+    @Override
+    public void extractRenderState(T entity, GlitchStalkerRenderState state, float partialTick) {
+        super.extractRenderState(entity, state, partialTick);
+        state.glitch = Mth.clamp(1.0f - (float) Math.sqrt(state.distanceToCameraSq) / GLITCH_RANGE, 0.0f, 1.0f);
+    }
+
+    @Override
+    public void submit(GlitchStalkerRenderState state, PoseStack poseStack, SubmitNodeCollector collector, CameraRenderState camera) {
+        // ageInTicks includes the partial tick, so it moves smoothly every rendered frame, not just every game tick.
+        float age = state.ageInTicks * StalkerProperties.GLITCH_SPEED;
+        float intensity = intensity(age, state.glitch);
+        Identifier texture = GlitchTexture.get(name, age, intensity);
+
+        boolean vanished = RandomSource.create((long) age * 7919L + 104729L).nextFloat() < 0.04f * intensity; // ~20 times a second
+        if (texture != null && !vanished) {
+            // Shake the whole sprite sideways a little, a new amount every ~60th of a second.
+            float glitchScale = sprite.height() * 0.25f;
+            float jitter = (RandomSource.create((long) (age * 3.0f) * 6151L + 11L).nextFloat() - 0.5f) * 0.08f * glitchScale * intensity;
+
+            poseStack.pushPose();
+            // Turn to face the camera sideways only, so it stays upright however far you look up or down.
+            ClientCompat.rotate(poseStack, new Quaternionf().rotationY((float) Math.toRadians(180.0 - yaw(camera))));
+            collector.submitCustomGeometry(poseStack, RenderTypes.entityTranslucent(texture),
+                    (pose, consumer) -> drawSprite(pose, consumer, jitter));
+            poseStack.popPose();
+        }
+        super.submit(state, poseStack, collector, camera); // name tag, if any
+    }
+
+    /** This version's camera state has no yaw field, so work it out from where the camera looks. */
+    private static float yaw(CameraRenderState camera) {
+        org.joml.Vector3f forward = camera.orientation.transform(new org.joml.Vector3f(0.0f, 0.0f, -1.0f));
+        return (float) Math.toDegrees(Math.atan2(-forward.x, forward.z));
+    }
+
+    private float intensity(float age, float proximity) {
+        // Every so often, a short burst of Word0809 glitching (a few tenths of a second).
+        boolean burst = RandomSource.create(((long) age / 6) * 15485863L).nextInt(5) == 0;
+        float base = baseGlitch + 0.6f * proximity + (burst ? 0.45f : 0.0f);
+        return Mth.clamp(base * StalkerProperties.GLITCH_STRENGTH, 0.0f, 1.0f);
+    }
+
+    private void drawSprite(PoseStack.Pose pose, VertexConsumer consumer, float shiftX) {
+        float half = sprite.width() / 2.0f;
+        float height = sprite.height();
+        vertex(consumer, pose, -half + shiftX, 0.0f, 0.0f, 1.0f);
+        vertex(consumer, pose, half + shiftX, 0.0f, 1.0f, 1.0f);
+        vertex(consumer, pose, half + shiftX, height, 1.0f, 0.0f);
+        vertex(consumer, pose, -half + shiftX, height, 0.0f, 0.0f);
+    }
+
+    private static void vertex(VertexConsumer consumer, PoseStack.Pose pose, float x, float y, float u, float v) {
+        consumer.addVertex(pose, x, y, 0.0f)
+                .setColor(255, 255, 255, 255)
+                .setUv(u, v)
+                .setOverlay(OverlayTexture.NO_OVERLAY)
+                .setLight(FULL_BRIGHT)
+                .setNormal(pose, 0.0f, 1.0f, 0.0f);
+    }
+}

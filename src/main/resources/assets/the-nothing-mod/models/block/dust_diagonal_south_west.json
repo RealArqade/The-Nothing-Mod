@@ -1,0 +1,13 @@
+{
+  "ambientocclusion": false,
+  "textures": { "particle": "the-nothing-mod:block/dust_dot_0" },
+  "elements": [
+    { "from": [4, 0.65, -3.3137], "to": [12, 0.65, 8],
+      "rotation": { "origin": [8, 0.65, 8], "axis": "y", "angle": 45 },
+      "shade_direction_override": "up",
+      "faces": {
+        "up":   { "uv": [4, 0, 12, 11.3137], "texture": "#line", "tintindex": 0 },
+        "down": { "uv": [4, 11.3137, 12, 0], "texture": "#line", "tintindex": 0 }
+      } }
+  ]
+}

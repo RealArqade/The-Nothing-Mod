@@ -1,0 +1,91 @@
+{
+    "_readme":  "One entry per Minecraft version. status: working = builds and has been run; planned = no code yet. Build with tools/Build-Version.ps1 -Version \u003ckey\u003e [-Loader fabric|neoforge|forge|all]. The numbers are passed to Gradle as -P overrides, so gradle.properties never has to be edited.",
+    "26.3":  {
+                 "status":  "working",
+                 "minecraft_version":  "26.3",
+                 "minecraft_range":  "~26.3",
+                 "loader_version":  "0.20.1",
+                 "fabric_api_version":  "0.165.0+26.3",
+                 "yacl_version":  "3.9.7+26.3-fabric",
+                 "modmenu_version":  "21.0.0",
+                 "neoforge_version":  "26.3.0.101",
+                 "yacl_neoforge_version":  "3.9.7+26.3-neoforge",
+                 "forge_version":  "26.3-66.1.5",
+                 "java":  25,
+                 "compat":  "26.3",
+                 "drop_attributes":  "",
+                 "forge_spec":  "66"
+             },
+    "26.2":  {
+                 "status":  "trying",
+                 "minecraft_version":  "26.2",
+                 "minecraft_range":  "~26.2",
+                 "loader_version":  "0.20.1",
+                 "fabric_api_version":  "0.161.0+26.2",
+                 "yacl_version":  "3.9.7+26.2-fabric",
+                 "modmenu_version":  "21.0.0",
+                 "neoforge_version":  "26.2.0.93",
+                 "yacl_neoforge_version":  "3.9.7+26.2-neoforge",
+                 "forge_version":  "26.2-65.1.6",
+                 "java":  25,
+                 "compat":  "26.2",
+                 "drop_attributes":  "minecraft:gameplay/straw_bed_rule",
+                 "forge_spec":  "65",
+                 "note":  "Fabric: every Fabric API build for 26.2 fails at startup (fabric-resource-loader-v1 PackMixin does not match 26.2 Pack). NeoForge and Forge work."
+             },
+    "26.1":  {
+                 "status":  "trying",
+                 "minecraft_version":  "26.1.2",
+                 "minecraft_range":  "26.1.x",
+                 "loader_version":  "0.20.1",
+                 "fabric_api_version":  "0.155.3+26.1.2",
+                 "yacl_version":  "3.9.7+26.1-fabric",
+                 "modmenu_version":  "21.0.0",
+                 "neoforge_version":  "26.1.2.126",
+                 "yacl_neoforge_version":  "3.9.7+26.1-neoforge",
+                 "forge_version":  "26.1.2-64.1.6",
+                 "java":  25,
+                 "compat":  "26.1",
+                 "drop_attributes":  "minecraft:gameplay/straw_bed_rule",
+                 "forge_spec":  "64"
+             },
+    "1.21.x":  {
+                   "status":  "planned",
+                   "note":  "Needs Mojang-mapped sources (Loom \u0027mojang()\u0027 or Yarn), ResourceLocation instead of Identifier, the old GUI/renderer APIs and dimension_type JSON without \u0027attributes\u0027. Fabric API and YACL versions to be filled in per exact version.",
+                   "java":  21
+               },
+    "1.20.x":  {
+                   "status":  "planned",
+                   "java":  17
+               },
+    "1.19.x":  {
+                   "status":  "planned",
+                   "java":  17
+               },
+    "1.16-1.18":  {
+                      "status":  "planned",
+                      "note":  "Fabric API exists for 1.14+. Mixins and registries differ a lot.",
+                      "java":  8
+                  },
+    "1.8-1.13":  {
+                     "status":  "planned",
+                     "note":  "Needs Legacy Fabric (not Fabric): its own loader, API and mappings, and no YACL or ModMenu. The monsters, blocks and places are data files and carry over; the Java side would be a rewrite per line."
+                 },
+    "1.21.11":  {
+                    "status":  "trying",
+                    "minecraft_version":  "1.21.11",
+                    "minecraft_range":  "~1.21.11",
+                    "loader_version":  "0.20.1",
+                    "fabric_api_version":  "0.141.6+1.21.11",
+                    "yacl_version":  "3.8.1+1.21.11-fabric",
+                    "modmenu_version":  "17.0.1",
+                    "neoforge_version":  "21.11.48",
+                    "yacl_neoforge_version":  "3.8.1+1.21.11-neoforge",
+                    "forge_version":  "1.21.11-61.2.5",
+                    "forge_spec":  "61",
+                    "compat":  "1.21.11",
+                    "loom_suffix":  "-remap",
+                    "drop_attributes":  "minecraft:gameplay/straw_bed_rule,minecraft:visual/ambient_light_color,default_clock",
+                    "java":  21
+                }
+}
