@@ -12,7 +12,7 @@ Permission is granted to download, install and play this software, for personal,
 You may not:
 
 - Redistribute, republish, mirror, re-upload or share this software, or any part of it, in any form, whether modified or not.
-- Sell this software or any derivative works, or use it commercially in any way.
+- Sell this software, or charge for it or for access to its files, or use it commercially in any way not allowed below.
 - Sublicense this software or include it, or any part of it, in other projects, modpacks or compilations.
 - Modify this software, or create or publish derivative works.
 - Read, view, copy, decompile, disassemble, deobfuscate or otherwise reverse engineer the mod's code, or the contents of the mod's other files (textures, sounds, data, hidden content), or try to extract or work out its source code, assets or hidden content, by any means, except as allowed below.
@@ -23,6 +23,10 @@ Allowed:
 - You may unzip (extract) the jar file, for example to look at what it contains.
 - You may read the Markdown (.md) files at the top level of the jar or of the project (such as README, CREDITS and this license).
 - You may read the source code of the custom launcher that the mod sets up (the loader in the alpha-loader folder, which ships inside the jar as orrin/orrin-loader.jar), to check that it is not a virus. This allowance covers that loader only, not the mod's own code (other than the public repository code described under Community bug fixes).
+
+Servers:
+
+- You may run this software on any Minecraft server, public or private, including a server that earns money (donations, ranks, subscriptions, ads and so on), as long as you do not sell or charge for the mod itself or its files. Tell your players to get the mod from its official page; do not host or send out copies of the files yourself.
 
 Videos and streams:
 
