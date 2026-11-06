@@ -2,10 +2,9 @@ package com.realarqade.thenothingmod.client;
 
 
 
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
 
-/** The ending, shown when the Word0794 falls. Plain lines, one at a time. Word0942 or Space closes it once it has all been shown. */
+/** The ending, shown when the Word0794 falls. Plain lines, one at a time. Escape or Space closes it once it has all been shown. */
 final class EndingScreen extends DustScreen {
     private static final String[] LINES = {
             "placeholder text",
@@ -54,9 +53,9 @@ final class EndingScreen extends DustScreen {
     }
 
     @Override
-    public boolean keyPressed(KeyEvent event) {
-        if (finished() && (event.key() == com.mojang.blaze3d.platform.InputConstants.KEY_SPACE
-                || event.key() == com.mojang.blaze3d.platform.InputConstants.KEY_ESCAPE)) {
+    protected boolean onKey(int key) {
+        if (finished() && (key == com.mojang.blaze3d.platform.InputConstants.KEY_SPACE
+                || key == com.mojang.blaze3d.platform.InputConstants.KEY_ESCAPE)) {
             minecraft.setScreenAndShow(null);
         }
         return true;

@@ -19,7 +19,7 @@ import java.util.function.Function;
 public class ModItems {
     public static void initialize() {
         // Get the event for modifying entries in the ingredients group.
-        // And register an event handler that adds our Word0811 item to the ingredients group.
+        // And register an event handler that adds our Word0809 item to the ingredients group.
         Platform.get().modifyCreativeTab(CreativeModeTabs.INGREDIENTS, creativeTab -> {
                     creativeTab.accept(ModItems.ID_0051);
                     ModLoreItems.ALL.forEach(creativeTab::accept);

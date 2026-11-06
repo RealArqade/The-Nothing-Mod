@@ -10,7 +10,7 @@ import net.minecraft.server.level.ServerPlayer;
  *   <li>1 <b>Slam</b>: black, then the figure fills the screen for a split second.</li>
  *   <li>2 <b>Close-up</b>: a slow zoom into its face, then a snap.</li>
  *   <li>3 <b>Eyes</b>: darkness, two pale eyes open, and it is suddenly right there.</li>
- *   <li>4 <b>Word0865</b>: five of it, side by side, flicker in.</li>
+ *   <li>4 <b>Word0863</b>: five of it, side by side, flicker in.</li>
  *   <li>5 <b>Tear</b>: the picture gets sliced into strips that slide apart.</li>
  * </ul>
  */

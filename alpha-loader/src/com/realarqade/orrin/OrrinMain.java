@@ -71,7 +71,7 @@ public final class OrrinMain {
         }
         System.out.println("placeholder text" + version + ": " + AlphaVersion.lore(version));
         // Once, a good while in, a fake crash report appears in a window of its own. The game is fine behind it; the window closes by itself.
-        // Turn it off with -Word0943.fakecrash=off, or change when it shows with -Word0943.fakecrash=<seconds>.
+        // Turn it off with -Word0940.fakecrash=off, or change when it shows with -Word0940.fakecrash=<seconds>.
         String when = System.getProperty("orrin.fakecrash", AlphaVersion.isAftermath(version) ? "900" : "540");
         if (!"off".equals(when)) {
             FakeCrash.schedule(version, Long.parseLong(when));

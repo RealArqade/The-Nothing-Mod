@@ -86,7 +86,7 @@ public class SpriteMonsterRenderer<T extends Entity> extends EntityRenderer<T, G
     }
 
     private float intensity(float age, float proximity) {
-        // Every so often, a short burst of Word0809 glitching (a few tenths of a second).
+        // Every so often, a short burst of Word0807 glitching (a few tenths of a second).
         boolean burst = RandomSource.create(((long) age / 6) * 15485863L).nextInt(5) == 0;
         float base = baseGlitch + 0.6f * proximity + (burst ? 0.45f : 0.0f);
         return Mth.clamp(base * StalkerProperties.GLITCH_STRENGTH, 0.0f, 1.0f);

@@ -36,10 +36,10 @@ public final class ModMonsters {
                     EntityType.Builder.of(ApparitionEntity::new, MobCategory.MONSTER)
                             .sized(def.hitW(), def.hitH())
                             .clientTrackingRange(10)
-                            .build(key));
+                            .build(Compat.entityKey(key)));
             TYPES.put(def.id(), type);
             BY_TYPE.put(type, def);
-            Platform.get().registerAttributes(type, ApparitionEntity.createAttributes(def));
+            Platform.get().registerAttributes(type, () -> ApparitionEntity.createAttributes(def));
         }
     }
 

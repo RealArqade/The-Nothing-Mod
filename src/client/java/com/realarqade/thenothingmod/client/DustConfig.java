@@ -33,7 +33,7 @@ public class DustConfig {
     public boolean disableQuitButton = true;
 
     /**
-     * Word0949 Mode. Opt-in, off by default. It is meant to switch off anything that uses personal details about the player, so the
+     * Word0946 Mode. Opt-in, off by default. It is meant to switch off anything that uses personal details about the player, so the
      * mod is safe to stream. It does nothing yet: no feature uses personal details so far, so there is nothing for it to switch off.
      * Whatever gets added later that does must check this first.
      */

@@ -16,7 +16,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
 
 import java.io.IOException;
@@ -104,8 +103,7 @@ public final class Dimensions {
         int floorY = dim.isVoid() ? VOID_FLOOR_Y : -1;
         BlockPos centre = dim.isVoid() ? new BlockPos(7, floorY, 7) : new BlockPos(0, floorY, 0);
         buildArrival(target, centre, dim);
-        player.teleport(new TeleportTransition(target, new Vec3(centre.getX() + 0.5, floorY + 1.0, centre.getZ() + 0.5), Vec3.ZERO, player.getYRot(), 0.0f,
-                TeleportTransition.DO_NOTHING));
+        Compat.teleport(player, target, centre.getX() + 0.5, floorY + 1.0, centre.getZ() + 0.5);
         cooldown.put(player.getUUID(), (long) server.getTickCount() + 60);
         Compat.overlay(player, Component.literal(dim.name()));
         HauntEvents.desktopFile(player, 2); // the first time anyone goes through a gate or falls
@@ -129,8 +127,7 @@ public final class Dimensions {
         if (coolingDown(player)) {
             return;
         }
-        TeleportTransition home = player.findRespawnPositionAndUseSpawnBlock(false, TeleportTransition.DO_NOTHING);
-        player.teleport(home);
+        Compat.sendHome(player);
         cooldown.put(player.getUUID(), (long) player.level().getServer().getTickCount() + 60);
     }
 

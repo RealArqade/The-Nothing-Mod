@@ -147,7 +147,7 @@ final class SpectrogramAudio {
                 if (i >= total) {
                     break;
                 }
-                // Short fade at each column's edges, so columns don't click (clicks are broadband and would Word0939 the text).
+                // Short fade at each column's edges, so columns don't click (clicks are broadband and would Word0937 the text).
                 double edge = Math.min(1.0, Math.min(s, columnSamples - s) / (0.006 * RATE));
                 for (int row = 0; row < 7; row++) {
                     if (!on[row]) {

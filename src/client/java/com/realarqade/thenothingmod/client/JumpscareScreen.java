@@ -5,7 +5,6 @@ import com.realarqade.thenothingmod.StalkerProperties;
 
 
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
 
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
@@ -253,14 +252,14 @@ final class JumpscareScreen extends DustScreen {
         }
     }
 
-    /** Nothing gets you out of it: no Word0942, no keys. It ends by itself. */
+    /** Nothing gets you out of it: no Escape, no keys. It ends by itself. */
     @Override
     public boolean shouldCloseOnEsc() {
         return false;
     }
 
     @Override
-    public boolean keyPressed(KeyEvent event) {
+    protected boolean onKey(int key) {
         return true;
     }
 

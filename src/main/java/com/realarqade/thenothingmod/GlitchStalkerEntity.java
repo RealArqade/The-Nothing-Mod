@@ -21,7 +21,7 @@ import net.minecraft.world.level.Level;
  * The big one, "The Nothing". It appears at random far from a player (see {@link StalkerEvents}) and stands there watching.
  * After {@link StalkerProperties#CHASE_AFTER_TICKS} (2 minutes) it chases the nearest player, and if it catches them, it
  * ends their game: a jumpscare, then they are kicked (unless that is switched off in {@link ServerSettings}) and are dead when
- * they come back, or they simply die on the spot. It Word0802 after the catch, or if it gives up. Stats, timings and sizes are
+ * they come back, or they simply die on the spot. It Word0800 after the catch, or if it gives up. Stats, timings and sizes are
  * in {@link StalkerProperties}. You can also summon one: {@code /summon the-nothing-mod:id_0193}.
  */
 public class GlitchStalkerEntity extends Monster implements Apparition {
@@ -54,7 +54,7 @@ public class GlitchStalkerEntity extends Monster implements Apparition {
         return tickCount >= StalkerProperties.CHASE_AFTER_TICKS;
     }
 
-    /** It stays until it Word0802 by itself (see {@link #tick()}), rather than being cleaned up by vanilla's despawning. */
+    /** It stays until it Word0800 by itself (see {@link #tick()}), rather than being cleaned up by vanilla's despawning. */
     @Override
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;

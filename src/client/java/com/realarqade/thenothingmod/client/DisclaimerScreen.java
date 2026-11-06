@@ -6,7 +6,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.MultiLineTextWidget;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
@@ -14,14 +13,19 @@ import net.minecraft.network.chat.MutableComponent;
  * The content warning shown once each time the game starts (before the title screen). Two pages: the content warning, then the
  * disclaimer (what the mod is, that it makes files, and so on). The checkbox and the buttons that leave are on the second page.
  * <ul>
- *   <li><b>Release</b>: it can't be skipped. Word0942 does nothing, and "Done" and "placeholder text" stay greyed out until the
+ *   <li><b>Release</b>: it can't be skipped. Escape does nothing, and "Done" and "placeholder text" stay greyed out until the
  *   checkbox is ticked.</li>
- *   <li><b>Development environment</b> (launching from the IDE): SPACE or Word0942 skips it, and the buttons always work.</li>
+ *   <li><b>Development environment</b> (launching from the IDE): SPACE or Escape skips it, and the buttons always work.</li>
  *   <li>"placeholder text" (both) stores that in the config. It can be switched back on in the config screen.</li>
  * </ul>
  * The wording is in the lang file ({@code disclaimer.the-nothing-mod.*}). In the page-two bullets, text between {@code **} is shown in bold.
  */
-final class DisclaimerScreen extends Screen {
+final class DisclaimerScreen extends DustScreen {
+    @Override
+    protected boolean customDraw() {
+        return false;
+    }
+
     private static final int BULLETS = 6;
 
     private final Screen next;
@@ -148,15 +152,15 @@ final class DisclaimerScreen extends Screen {
     }
 
     @Override
-    public boolean keyPressed(KeyEvent event) {
-        if (development && event.key() == InputConstants.KEY_SPACE) {
+    protected boolean onKey(int key) {
+        if (development && key == InputConstants.KEY_SPACE) {
             finish(false);
             return true;
         }
-        return super.keyPressed(event);
+        return false;
     }
 
-    /** Word0942 skips it in development only. */
+    /** Escape skips it in development only. */
     @Override
     public boolean shouldCloseOnEsc() {
         return development;

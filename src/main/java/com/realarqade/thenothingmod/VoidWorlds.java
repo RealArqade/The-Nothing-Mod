@@ -41,7 +41,7 @@ public final class VoidWorlds {
             "v06", new Style("aisles", "id_0229", "id_0160", "id_0304"),
             "v07", new Style("cells", "id_0248", "id_0532", "id_0464"),
             "v08", new Style("erased", "id_0575", "id_0321", "id_0484"),
-            "v09", new Style("Word0940", "id_0119", "id_0093", "id_0323"),
+            "v09", new Style("Word0938", "id_0119", "id_0093", "id_0323"),
             "v10", new Style("steps", "id_0131", "id_0119", "id_0289"));
 
     private static final Queue<Pending> queue = new ArrayDeque<>();
@@ -101,7 +101,7 @@ public final class VoidWorlds {
             case "scatter" -> g.scatter();
             case "aisles" -> g.aisles();
             case "erased" -> g.erased();
-            case "Word0940" -> g.draft();
+            case "Word0938" -> g.draft();
             case "steps" -> g.steps();
             default -> g.plaza();
         }
@@ -208,7 +208,7 @@ public final class VoidWorlds {
                     set(cx, y + 1, cz, accent);
                 }
             }
-            // The arrival Word0827 lives in chunk 0,0 (see Dimensions); the chunk it is in gets a bigger disc.
+            // The arrival Word0825 lives in chunk 0,0 (see Dimensions); the chunk it is in gets a bigger disc.
             if (x0 == 0 && z0 == 0) {
                 for (int x = 0; x < 16; x++) {
                     for (int z = 0; z < 16; z++) {

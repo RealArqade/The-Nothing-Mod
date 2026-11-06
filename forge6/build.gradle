@@ -1,0 +1,214 @@
+plugins {
+	id 'java'
+	id 'net.minecraftforge.gradle' version '[6.0.24,6.2)'
+	id 'org.spongepowered.mixin' version '0.7.+'
+}
+
+def rootDirPath = file('..')
+
+group = project.group
+version = project.version
+base.archivesName = "the-nothing-mod-forge"
+
+
+// The shared code lives in the root project's src/main (everything) and src/client (client-only); the Fabric-only parts are in
+// folders called "fabric" and are left out here.
+// A file in compat/<version>/ with the same path as a shared file REPLACES the shared one for that version.
+def compatRoot = new File(rootDirPath, "compat/${project.compat}")
+def replaced = [] as Set
+compatRoot.eachFileRecurse { f ->
+	if (f.isFile() && f.name.endsWith('.java')) {
+		def rel = f.toPath().toString().substring(compatRoot.toString().length() + 1).replace('\\', '/')
+		replaced << rel.replaceFirst('^[^/]+/', '')
+	}
+}
+// Older Minecraft versions rename some classes. versions.json can list textual renames (source_replacements = "Old~New;Old2~New2"),
+// applied to a copy of the shared sources in build/prepared; compat/<version>/ files are written in the target version's own names.
+def replacements = (project.findProperty('source_replacements') ?: '').toString().split('@@').collect { it.trim() }.findAll { !it.isEmpty() }.collect {
+	def parts = it.split('~')
+	[parts[0].trim().startsWith('r:') ? parts[0].trim().substring(2) : '\\b' + java.util.regex.Pattern.quote(parts[0].trim()) + '\\b', parts[1].trim()]
+}
+def preparedDir = layout.buildDirectory.dir('prepared/java')
+def sharedMain = new File(rootDirPath, 'src/main/java')
+def sharedClient = new File(rootDirPath, 'src/client/java')
+def prepare = tasks.register('prepareSources', Sync) {
+	inputs.property('source_replacements', replacements.toString())
+	inputs.property('replaced_files', replaced.toString())
+	into preparedDir
+	from(sharedMain)
+	from(sharedClient)
+	from(new File(rootDirPath, 'forge/src/main/java'))
+	exclude '**/fabric/**'
+	exclude { el -> replaced.contains(el.relativePath.pathString) }
+	if (!replacements.isEmpty()) {
+		filter { line ->
+			def out = line
+			replacements.each { r -> out = out.replaceAll(r[0], r[1]) }
+			out
+		}
+	}
+}
+tasks.withType(JavaCompile).configureEach { dependsOn prepare }
+
+sourceSets {
+	main {
+		java {
+			setSrcDirs([preparedDir])
+			srcDir new File(rootDirPath, "compat/${project.compat}/java")
+			srcDir new File(rootDirPath, "compat/${project.compat}/client")
+			srcDir new File(rootDirPath, "compat/${project.compat}/forge")
+			exclude '**/fabric/**'
+			exclude { el -> !el.file.path.startsWith(compatRoot.path) && replaced.contains(el.relativePath.pathString) }
+		}
+		resources {
+			srcDir new File(rootDirPath, 'src/main/resources')
+			srcDir new File(rootDirPath, 'forge/src/main/resources')
+			srcDir new File(rootDirPath, 'src/client/resources')
+			exclude 'fabric.mod.json'
+		}
+	}
+}
+
+// the dev run wants the classes and the resources of the mod in one folder
+sourceSets.main.output.resourcesDir = sourceSets.main.java.destinationDirectory
+
+minecraft {
+	mappings channel: 'official', version: project.minecraft_version
+	runs {
+		client {
+			workingDirectory project.file('run')
+			property 'forge.logging.console.level', 'info'
+			mods {
+				the_nothing_mod {
+					source sourceSets.main
+				}
+			}
+		}
+		server {
+			workingDirectory project.file('run')
+			args '--nogui'
+			property 'forge.logging.console.level', 'info'
+			mods {
+				the_nothing_mod {
+					source sourceSets.main
+				}
+			}
+		}
+	}
+}
+
+mixin {
+	add sourceSets.main, 'the-nothing-mod.refmap.json'
+	config 'the-nothing-mod.mixins.json'
+	config 'the-nothing-mod.client.mixins.json'
+}
+
+repositories {
+	maven {
+		name = 'Xander Maven' // YetAnotherConfigLib
+		url = 'https://maven.isxander.dev/releases'
+	}
+	maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+	mavenCentral()
+}
+
+dependencies {
+	minecraft "net.minecraftforge:forge:${project.forge_version}"
+	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+	// Only to compile the settings screen: YetAnotherConfigLib has no Forge build here, so that screen is never loaded
+	compileOnly "dev.isxander:yet-another-config-lib:${project.yacl_neoforge_version}"
+}
+processResources {
+	def props = [version: project.version, minecraft_version: project.minecraft_version, forge_spec: project.forge_spec]
+	def dropList = project.drop_attributes.toString().split(',').collect { it.trim() }.findAll { !it.isEmpty() }
+	inputs.properties props
+	inputs.property 'drop_attributes', dropList
+	def packFormat = (project.findProperty('pack_format') ?: '').toString()
+	inputs.property 'pack_format', packFormat
+	filesMatching('pack.mcmeta') {
+		filter { line -> packFormat.isEmpty() ? line : line.replace('"min_format":121,"max_format":121', '"pack_format":' + packFormat) }
+	}
+	filesMatching("META-INF/mods.toml") {
+		expand props
+	}
+	// the mixin config names the Java level the mod is compiled for
+	def javaLevel = project.java_version.toString()
+	inputs.property 'java_level', javaLevel
+	filesMatching('*.mixins.json') {
+		filter { line -> line.replace('JAVA_25', 'JAVA_' + javaLevel).replace('"required": true,', '"required": true, "refmap": "the-nothing-mod.refmap.json",') }
+	}
+	// 1.21.10 and older: dimension_type JSON has no attributes/timelines, so rewrite it into the older shape
+	def legacyDims = project.dim_format.toString() == 'legacy'
+	inputs.property 'dim_format', legacyDims
+	doLast {
+		if (legacyDims) {
+			def dir = new File(destinationDir, 'data/the-nothing-mod/dimension_type')
+			if (dir.exists()) {
+				dir.listFiles().findAll { it.name.endsWith('.json') }.each { file ->
+					def json = new groovy.json.JsonSlurper().parse(file)
+					['attributes', 'timelines', 'default_clock', 'has_ender_dragon_fight'].each { json.remove(it) }
+					[ultrawarm: false, natural: true, piglin_safe: false, bed_works: false, respawn_anchor_works: false, has_raids: false, effects: 'minecraft:overworld'].each { k, v -> if (!json.containsKey(k)) json[k] = v }
+					file.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(json))
+				}
+			}
+		}
+	}
+	def legacyItems = project.item_models.toString() == 'legacy'
+	inputs.property 'item_models', legacyItems
+	doLast {
+		if (legacyItems) {
+			def items = new File(destinationDir, 'assets/the-nothing-mod/items')
+			def models = new File(destinationDir, 'assets/the-nothing-mod/models/item')
+			if (items.exists()) {
+				models.mkdirs()
+				items.listFiles().findAll { it.name.endsWith('.json') }.each { file ->
+					def target = new File(models, file.name)
+					if (!target.exists()) {
+						def json = new groovy.json.JsonSlurper().parse(file)
+						target.text = groovy.json.JsonOutput.toJson([parent: json.model.model])
+					}
+				}
+			}
+		}
+	}
+	def legacyPaths = project.data_paths.toString() == 'legacy'
+	inputs.property 'data_paths', legacyPaths
+	doLast {
+		if (legacyPaths) {
+			def old = new File(destinationDir, 'data/the-nothing-mod/loot_table')
+			if (old.exists()) {
+				old.renameTo(new File(destinationDir, 'data/the-nothing-mod/loot_tables'))
+			}
+		}
+	}
+	// leave out dimension attributes this Minecraft version does not know
+	filesMatching("data/the-nothing-mod/dimension_type/*.json") {
+		filter { line -> dropList.any { line.contains(it) } ? null : line }
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+	options.release = project.java_version as int
+}
+
+jar {
+	from(new File(rootDirPath, 'LICENSE'))
+	from(new File(rootDirPath, 'CREDITS.md'))
+}
+
+jar {
+	finalizedBy 'reobfJar'
+}
+
+// the self-test places hundreds of structures in one tick: no watchdog, and a port that does not clash with a local server
+afterEvaluate {
+	tasks.matching { it.name == 'runServer' }.configureEach {
+		doFirst {
+			def dir = file('run')
+			dir.mkdirs()
+			new File(dir, 'server.properties').text = 'level-name=world-forge6\nmax-tick-time=-1\nserver-port=25592\nonline-mode=false\n'
+			new File(dir, 'eula.txt').text = 'eula=true\n'
+		}
+	}
+}

@@ -276,7 +276,7 @@ final class OrrinBend {
         set(cx - 1, base, cz + 4, LOG);
     }
 
-    /** The store: shelves of books, a Word0893, a chest, two lamps. */
+    /** The store: shelves of books, a Word0891, a chest, two lamps. */
     private void store(int cx, int cz, int base) {
         int y = base + 1;
         fill(PLANKS, cx - 4, base, cz - 3, cx + 4, base, cz + 3);
@@ -401,7 +401,7 @@ final class OrrinBend {
         }
     }
 
-    /** For testing only (-Word0943.spawn=town, set by the loader's --spawn-town): start in the town instead of on the dam. */
+    /** For testing only (-Word0940.spawn=town, set by the loader's --spawn-town): start in the town instead of on the dam. */
     private static boolean townSpawn() {
         return "town".equals(System.getProperty("orrin.spawn"));
     }

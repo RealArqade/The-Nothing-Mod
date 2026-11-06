@@ -21,6 +21,14 @@ final class Gfx {
     void fill(int x1, int y1, int x2, int y2, int color) { g.fill(x1, y1, x2, y2, color); }
 
     Matrix3x2fStack pose() { return g.pose(); }
+    void push() { g.pose().pushMatrix(); }
+
+    void translate(float x, float y) { g.pose().translate(x, y); }
+
+    void scale(float x, float y) { g.pose().scale(x, y); }
+
+    void pop() { g.pose().popMatrix(); }
+
 
     void text(Font font, String s, int x, int y, int color) { g.text(font, s, x, y, color); }
 

@@ -33,9 +33,9 @@ import java.util.List;
  * The Word0794: what keeps the records. Called up at Name 0084 by someone who brings all nineteen names back. It is the
  * hardest thing in the mod, on purpose. It is not the Ender Dragon and nothing about the dragon changes.
  * <ul>
- *   <li><b>Word0870 1</b> (above two thirds of its health): it walks at you and hits hard; it also steps through space to stay close.</li>
- *   <li><b>Word0870 2</b> (below two thirds): its look fills your vision with dark and weakens you while you are near.</li>
- *   <li><b>Word0870 3</b> (below one third): it is faster, hits harder, and strikes at you from a distance every few seconds.</li>
+ *   <li><b>Word0868 1</b> (above two thirds of its health): it walks at you and hits hard; it also steps through space to stay close.</li>
+ *   <li><b>Word0868 2</b> (below two thirds): its look fills your vision with dark and weakens you while you are near.</li>
+ *   <li><b>Word0868 3</b> (below one third): it is faster, hits harder, and strikes at you from a distance every few seconds.</li>
  * </ul>
  * Beating it counts as beating the mod: everyone near it gets the ending (see {@code HauntPayloads.Ending}) and the tag
  * {@link #BEATEN_TAG}. Tune everything in the constants below.

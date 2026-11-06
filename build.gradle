@@ -18,6 +18,10 @@ repositories {
 		url = 'https://maven.isxander.dev/releases'
 	}
 	maven {
+		name = 'Nucleoid' // Placeholder API, needed by older Mod Menu
+		url = 'https://maven.nucleoid.xyz/'
+	}
+	maven {
 		name = 'TerraformersMC' // Mod Menu
 		url = 'https://maven.terraformersmc.com/releases/'
 	}
@@ -37,6 +41,14 @@ sourceSets.main.java.srcDir file("compat/${project.compat}/java")
 
 loom {
 	splitEnvironmentSourceSets()
+
+	// Obfuscated Minecraft (the remapping plugin): Loom's Mixin annotation processor writes the refmap that maps our Mojang-named targets
+	// to the names of a real install. Unobfuscated versions (26.1+) need no refmap.
+	if (project.loom_suffix == '-remap') {
+		mixin {
+			useLegacyMixinAp = true
+		}
+	}
 
 	mods {
 		"the-nothing-mod" {
@@ -67,6 +79,62 @@ sourceSets.client.resources.exclude { el -> !el.file.path.startsWith(resRoot.pat
 	set.java.exclude { el -> !el.file.path.startsWith(compatRoot.path) && replaced.contains(el.relativePath.pathString) }
 }
 
+dependencies {
+	// To change the versions see the gradle.properties file
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	if (project.loom_suffix == '-remap') {
+		mappings loom.officialMojangMappings()
+	}
+	def mod = project.loom_suffix == '-remap' ? 'modImplementation' : 'implementation'
+	add(mod, "net.fabricmc:fabric-loader:${project.loader_version}")
+
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	add(mod, "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}")
+
+	// Config screen. `include` bundles each one inside our jar (jar-in-jar), so players don't install them separately.
+	if (project.bundle_yacl.toString() != 'false') {
+		add(mod, "dev.isxander:yet-another-config-lib:${project.yacl_version}")
+		include "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+	} else {
+		// only to compile the settings screen; the config then lives in the JSON file when YACL is not installed
+		add(project.loom_suffix == '-remap' ? 'modCompileOnly' : 'compileOnly', "dev.isxander:yet-another-config-lib:${project.yacl_version}")
+	}
+	add(mod, "com.terraformersmc:modmenu:${project.modmenu_version}")
+	include "com.terraformersmc:modmenu:${project.modmenu_version}"
+}
+
+// Older Minecraft versions rename some classes: versions.json can list textual renames (source_replacements = "Old~New;Old2~New2"), applied
+// to a copy of the shared sources in build/prepared. Without renames the sources are compiled in place (so hot reload keeps working).
+def replacementList = (project.findProperty('source_replacements') ?: '').toString().split('@@').collect { it.trim() }.findAll { !it.isEmpty() }.collect {
+	def parts = it.split('~')
+	[parts[0].trim().startsWith('r:') ? parts[0].trim().substring(2) : '\\b' + java.util.regex.Pattern.quote(parts[0].trim()) + '\\b', parts[1].trim()]
+}
+if (!replacementList.isEmpty()) {
+	def mainPrepared = layout.buildDirectory.dir('prepared/main')
+	def clientPrepared = layout.buildDirectory.dir('prepared/client')
+	def prepMain = tasks.register('prepareMainSources', Sync) {
+		inputs.property('source_replacements', replacementList.toString())
+		inputs.property('replaced_files', replaced.toString())
+		into mainPrepared
+		from(file('src/main/java'))
+		exclude { el -> replaced.contains(el.relativePath.pathString) }
+		filter { line -> def out = line; replacementList.each { r -> out = out.replaceAll(r[0], r[1]) }; out }
+	}
+	def prepClient = tasks.register('prepareClientSources', Sync) {
+		inputs.property('source_replacements', replacementList.toString())
+		inputs.property('replaced_files', replaced.toString())
+		into clientPrepared
+		from(file('src/client/java'))
+		exclude { el -> replaced.contains(el.relativePath.pathString) }
+		filter { line -> def out = line; replacementList.each { r -> out = out.replaceAll(r[0], r[1]) }; out }
+	}
+	sourceSets.main.java.setSrcDirs([mainPrepared, file("compat/${project.compat}/java")])
+	sourceSets.client.java.setSrcDirs([clientPrepared, file("compat/${project.compat}/client"), file("compat/${project.compat}/fabric")])
+	tasks.named('compileJava') { dependsOn prepMain }
+	tasks.named('compileClientJava') { dependsOn prepClient }
+	tasks.matching { it.name == 'sourcesJar' || it.name == 'remapSourcesJar' }.configureEach { dependsOn prepMain, prepClient }
+}
+
 // --- Dev hot reload ---
 // Plain Java hot-swap only lets you edit inside method bodies. A JetBrains Runtime (JBR, the JDK bundled with IntelliJ)
 // can also swap changes that add or remove methods and fields, while the game keeps running. If IntelliJ's JBR is
@@ -94,25 +162,6 @@ if (devJavaExecutable != null) {
 	}
 }
 
-dependencies {
-	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	if (project.loom_suffix == '-remap') {
-		mappings loom.officialMojangMappings()
-	}
-	def mod = project.loom_suffix == '-remap' ? 'modImplementation' : 'implementation'
-	add(mod, "net.fabricmc:fabric-loader:${project.loader_version}")
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	add(mod, "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}")
-
-	// Config screen. `include` bundles each one inside our jar (jar-in-jar), so players don't install them separately.
-	add(mod, "dev.isxander:yet-another-config-lib:${project.yacl_version}")
-	include "dev.isxander:yet-another-config-lib:${project.yacl_version}"
-	add(mod, "com.terraformersmc:modmenu:${project.modmenu_version}")
-	include "com.terraformersmc:modmenu:${project.modmenu_version}"
-}
-
 processResources {
 	def version = project.version
 	def minecraftRange = project.minecraft_range
@@ -128,6 +177,49 @@ processResources {
 	}
 	filesMatching("fabric.mod.json") {
 		expand "version": version, "minecraft_range": minecraftRange, "java_version": javaLevel
+	}
+	def legacyDims = project.dim_format.toString() == 'legacy'
+	inputs.property 'dim_format', legacyDims
+	doLast {
+		if (legacyDims) {
+			def dir = new File(destinationDir, 'data/the-nothing-mod/dimension_type')
+			if (dir.exists()) {
+				dir.listFiles().findAll { it.name.endsWith('.json') }.each { file ->
+					def json = new groovy.json.JsonSlurper().parse(file)
+					['attributes', 'timelines', 'default_clock', 'has_ender_dragon_fight'].each { json.remove(it) }
+					[ultrawarm: false, natural: true, piglin_safe: false, bed_works: false, respawn_anchor_works: false, has_raids: false, effects: 'minecraft:overworld'].each { k, v -> if (!json.containsKey(k)) json[k] = v }
+					file.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(json))
+				}
+			}
+		}
+	}
+	def legacyItems = project.item_models.toString() == 'legacy'
+	inputs.property 'item_models', legacyItems
+	doLast {
+		if (legacyItems) {
+			def items = new File(destinationDir, 'assets/the-nothing-mod/items')
+			def models = new File(destinationDir, 'assets/the-nothing-mod/models/item')
+			if (items.exists()) {
+				models.mkdirs()
+				items.listFiles().findAll { it.name.endsWith('.json') }.each { file ->
+					def target = new File(models, file.name)
+					if (!target.exists()) {
+						def json = new groovy.json.JsonSlurper().parse(file)
+						target.text = groovy.json.JsonOutput.toJson([parent: json.model.model])
+					}
+				}
+			}
+		}
+	}
+	def legacyPaths = project.data_paths.toString() == 'legacy'
+	inputs.property 'data_paths', legacyPaths
+	doLast {
+		if (legacyPaths) {
+			def old = new File(destinationDir, 'data/the-nothing-mod/loot_table')
+			if (old.exists()) {
+				old.renameTo(new File(destinationDir, 'data/the-nothing-mod/loot_tables'))
+			}
+		}
 	}
 	// leave out dimension attributes this Minecraft version does not know
 	filesMatching("data/the-nothing-mod/dimension_type/*.json") {

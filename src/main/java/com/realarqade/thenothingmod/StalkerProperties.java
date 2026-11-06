@@ -66,9 +66,9 @@ public final class StalkerProperties {
     public static final double CHASE_SPEED_MODIFIER = 1.3;
     /** How long the jumpscare plays before the kick (or the death) happens: 50 ticks = 2.5 seconds. */
     public static final int JUMPSCARE_TICKS = 50;
-    /** It gives up and Word0802 this long after the chase starts (6000 ticks = 5 minutes). */
+    /** It gives up and Word0800 this long after the chase starts (6000 ticks = 5 minutes). */
     public static final int GIVE_UP_AFTER_TICKS = 6000;
-    /** It Word0802 if no player is within this many blocks. */
+    /** It Word0800 if no player is within this many blocks. */
     public static final double VANISH_DISTANCE = 160.0;
     /** While chasing, it stops dead whenever a player is looking at it. Off: it simply runs you down. */
     public static final boolean FREEZE_WHEN_WATCHED = false;

@@ -46,7 +46,7 @@ public final class ForgePlatform implements Platform {
     private record TabHandler(ResourceKey<CreativeModeTab> tab, Consumer<CreativeModeTab.Output> handler) {
     }
 
-    private record Attributes(EntityType<? extends LivingEntity> type, AttributeSupplier.Builder builder) {
+    private record Attributes(EntityType<? extends LivingEntity> type, java.util.function.Supplier<AttributeSupplier.Builder> builder) {
     }
 
     /** One payload type; it may go to the client, to the server, or both. */
@@ -171,6 +171,11 @@ public final class ForgePlatform implements Platform {
 
     @Override
     public void registerAttributes(EntityType<? extends LivingEntity> type, AttributeSupplier.Builder builder) {
+        attributes.add(new Attributes(type, () -> builder));
+    }
+
+    @Override
+    public void registerAttributes(EntityType<? extends LivingEntity> type, java.util.function.Supplier<AttributeSupplier.Builder> builder) {
         attributes.add(new Attributes(type, builder));
     }
 
@@ -236,7 +241,7 @@ public final class ForgePlatform implements Platform {
 
     void onAttributes(EntityAttributeCreationEvent event) {
         for (Attributes entry : attributes) {
-            event.put(entry.type(), entry.builder().build());
+            event.put(entry.type(), entry.builder().get().build());
         }
     }
 }

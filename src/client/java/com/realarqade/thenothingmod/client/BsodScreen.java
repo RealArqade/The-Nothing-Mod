@@ -2,7 +2,6 @@ package com.realarqade.thenothingmod.client;
 
 
 
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -127,11 +126,11 @@ final class BsodScreen extends DustScreen {
         int top = h / 6;
 
         // The sad face, huge and wrong.
-        graphics.pose().pushMatrix();
-        graphics.pose().translate(left + shakeX, top);
-        graphics.pose().scale(6.0f, 6.0f);
+        graphics.push();
+        graphics.translate(left + shakeX, top);
+        graphics.scale(6.0f, 6.0f);
         graphics.text(font, ":(", 0, 0, 0xFFB8C0D8);
-        graphics.pose().popMatrix();
+        graphics.pop();
 
         int y = top + 80;
         String[] lines = {
@@ -193,7 +192,7 @@ final class BsodScreen extends DustScreen {
     }
 
     @Override
-    public boolean keyPressed(KeyEvent event) {
+    protected boolean onKey(int key) {
         return true;
     }
 

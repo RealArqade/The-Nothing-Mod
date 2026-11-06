@@ -102,7 +102,7 @@ final class GlitchTexture {
                 }
                 width = w;
                 height = h;
-                texture = new DynamicTexture(() -> "placeholder text" + id, w, h, false);
+                texture = ClientCompat.newDynamicTexture("placeholder text" + id, w, h);
                 Minecraft.getInstance().getTextureManager().register(id, texture);
             }
             lastFrame = Long.MIN_VALUE;

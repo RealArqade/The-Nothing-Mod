@@ -25,7 +25,7 @@ import java.util.zip.ZipFile;
 /**
  * A fake crash report, built the way Alpha 1.0.14 builds its real one (read from the game's own crash class): a Frame with a panel on a\n * slate (0x2E3344) background, the game's own logo (/gui/logo.png, read from the player's copy of the game, never bundled) across the top,\n * 80-pixel margins either side and 100 below, and in the middle a plain AWT TextArea with a vertical scroll bar showing the report in\n * 12 point Monospaced. None of the text is real: there is
  * no such exception, no such class and no such file. It is a story told in a stack trace. The game keeps running behind it and
- * nothing is wrong. The window closes with Word0942, with its Close button, with the window's own X, or by itself after
+ * nothing is wrong. The window closes with Escape, with its Close button, with the window's own X, or by itself after
  * {@link #SECONDS_ON_SCREEN} seconds, so it can never be in the way.
  * <p>
  * What is hidden in it (every layer is on purpose, none is needed to play):
@@ -35,7 +35,7 @@ import java.util.zip.ZipFile;
  *   (night: "placeholder text"; aftermath: "placeholder text").</li>
  *   <li>The line numbers are the numbers of the story: 1962, 1014, 400, 41, 19, 305, 214...</li>
  *   <li>The "heap dump" line is hexadecimal; read as text it says "placeholder text" (night) or "placeholder text" (aftermath).</li>
- *   <li>The "Word0945" exception is an index error: index 19, size 19. There is one more of something than there are places.</li>
+ *   <li>The "Word0942" exception is an index error: index 19, size 19. There is one more of something than there are places.</li>
  * </ol>
  */
 final class FakeCrash {
@@ -63,7 +63,7 @@ final class FakeCrash {
         WORDS.put('E', new String[]{"erase", "expunge", "empty", "ease"});
         WORDS.put('A', new String[]{"Word0790", "abandon", "assume"});
         WORDS.put('R', new String[]{"recount", "remove", "retire"});
-        WORDS.put('S', new String[]{"Word0941", "seal", "settle"});
+        WORDS.put('S', new String[]{"Word0939", "seal", "settle"});
         WORDS.put('T', new String[]{"tally", "truncate", "trace", "thin"});
         WORDS.put('I', new String[]{"index", "ignore", "invalidate"});
         WORDS.put('L', new String[]{"list", "lose", "lock", "leave"});
@@ -233,7 +233,7 @@ final class FakeCrash {
     // ------------------------------------------------------------------ the scare
 
     static final String SCARE_TEXT = "placeholder text";
-    /** -Word0943.calm=on: no white flashes, no shaking, the sound at a third of the volume. The scare still happens. */
+    /** -Word0940.calm=on: no white flashes, no shaking, the sound at a third of the volume. The scare still happens. */
     static final boolean CALM = "on".equals(System.getProperty("orrin.calm"));
     /** Ticks (30 per second) the scare lasts: as long as the sound (set when the sound is loaded), 150 if it can't be. */
     static int scareTicks = 150;
@@ -372,7 +372,7 @@ final class FakeCrash {
     /**
      * The sound, about 5 seconds, mono, 44.1 kHz:
      * a sudden sub-bass impact with a burst of noise at the very start; a distorted human scream (a buzzing wave through three vowel
-     * filters, its pitch tearing downwards with a shake in it, Word0902 noise on top) that opens at once; a cluster of dissonant
+     * filters, its pitch tearing downwards with a shake in it, Word0900 noise on top) that opens at once; a cluster of dissonant
      * low tones swelling underneath; a second, smaller impact at 2 seconds and a last one at 3.4.
      */
     static byte[] scareSound(float volume) {
@@ -584,7 +584,7 @@ final class FakeCrash {
                             }
                         }, (long) (8000 + i * 1700 + (i == 5 ? 700 : 0)));
                     }
-                    // ...and then the scare. The window still closes with Word0942 or its X at any moment.
+                    // ...and then the scare. The window still closes with Escape or its X at any moment.
                     timer.schedule(new java.util.TimerTask() {
                         public void run() {
                             java.awt.EventQueue.invokeLater(new Runnable() {
@@ -616,7 +616,7 @@ final class FakeCrash {
     /**
      * After the given number of seconds, shows the crash window in a process of its own. As soon as that window is up, this process
      * (the game) saves the world and closes, so the game's window goes away and only the crash window is left. If that process can't be
-     * started, the window is shown here instead and the game is left alone. -Word0943.fakecrash.close=off keeps the game open.
+     * started, the window is shown here instead and the game is left alone. -Word0940.fakecrash.close=off keeps the game open.
      */
     static void schedule(final String version, final long seconds) {
         Thread thread = new Thread(new Runnable() {
@@ -632,9 +632,9 @@ final class FakeCrash {
                     command.add(new File(System.getProperty("java.home"), "bin/java").getPath());
                     String gameJar = GameControl.gameJarPath();
                     if (gameJar != null) {
-                        command.add("-Word0943.gamejar=" + gameJar);
+                        command.add("-Word0940.gamejar=" + gameJar);
                     }
-                    command.add("-Word0943.calm=" + (CALM ? "on" : "off"));
+                    command.add("-Word0940.calm=" + (CALM ? "on" : "off"));
                     command.add("-cp");
                     command.add(self.getAbsolutePath());
                     command.add("com.realarqade.orrin.FakeCrash");

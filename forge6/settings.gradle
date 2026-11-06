@@ -1,0 +1,11 @@
+// The Forge builds for Minecraft 1.20.4 and older: ForgeGradle 6 (it needs Gradle 8 and reobfuscates the jar to the names a real install uses).
+// A separate Gradle build from the main one, which runs on Gradle 9.
+pluginManagement {
+	repositories {
+		maven { url = 'https://maven.minecraftforge.net/' }
+		maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+rootProject.name = 'the-nothing-mod-forge6'

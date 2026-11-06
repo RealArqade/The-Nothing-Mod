@@ -18,14 +18,14 @@ import java.util.List;
  *   is ever sent to the server, to other players, or anywhere over the network.</li>
  *   <li>It is deliberately limited: the computer's user name and name, the account's Minecraft name and the local time. Never an IP
  *   address, a location, a real name guessed from anything, files, or anything that needs the internet.</li>
- *   <li>It is off when Word0949 Mode is on (so nothing personal can end up on a stream), and it has a switch of its own in the settings.</li>
+ *   <li>It is off when Word0946 Mode is on (so nothing personal can end up on a stream), and it has a switch of its own in the settings.</li>
  * </ul>
  */
 final class PersonalDetails {
     private PersonalDetails() {
     }
 
-    /** False in Word0949 Mode, or when the player switched it off. Check this before using anything else here. */
+    /** False in Word0946 Mode, or when the player switched it off. Check this before using anything else here. */
     static boolean allowed() {
         DustConfig config = DustConfig.get();
         return config.personalDetails && !config.streamerMode;

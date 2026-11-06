@@ -10,8 +10,8 @@ import java.util.List;
 
 /**
  * The fake "system corruption" the content warning talks about: a few seconds of glitching and error text, drawn inside the game over
- * whatever you were doing. Nothing is damaged and nothing outside the game is touched. If the player allows it (and Word0949 Mode is
- * off) it also shows a "record found" block with what {@link PersonalDetails} can read locally. Word0942 closes it at any time and it
+ * whatever you were doing. Nothing is damaged and nothing outside the game is touched. If the player allows it (and Word0946 Mode is
+ * off) it also shows a "record found" block with what {@link PersonalDetails} can read locally. Escape closes it at any time and it
  * ends by itself after {@link #SECONDS} seconds. "placeholder text" in the settings makes it calmer.
  */
 final class CorruptionScreen extends DustScreen {

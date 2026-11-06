@@ -3,6 +3,7 @@ package com.realarqade.thenothingmod.client;
 import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.gui.screens.Screen;
 import org.joml.Quaternionfc;
 
@@ -26,5 +27,10 @@ public final class ClientCompat {
     /** Redraws all the chunks (so a changed block colour shows). */
     public static void reloadChunks(Minecraft minecraft) {
         minecraft.levelExtractor.allChanged();
+    }
+
+    /** A texture that is drawn into by code. */
+    public static DynamicTexture newDynamicTexture(String label, int w, int h) {
+        return new DynamicTexture(() -> label, w, h, false);
     }
 }

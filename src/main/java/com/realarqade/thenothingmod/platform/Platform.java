@@ -53,6 +53,11 @@ public interface Platform {
 
     void registerAttributes(EntityType<? extends LivingEntity> type, AttributeSupplier.Builder attributes);
 
+    /** Same, but the attributes are only built when the platform needs them (some loaders have not registered all the base attributes yet at start-up). */
+    default void registerAttributes(EntityType<? extends LivingEntity> type, java.util.function.Supplier<AttributeSupplier.Builder> attributes) {
+        registerAttributes(type, attributes.get());
+    }
+
     // ---- networking ----
     <T extends CustomPacketPayload> void registerClientbound(CustomPacketPayload.Type<T> type, StreamCodec<? super RegistryFriendlyByteBuf, T> codec);
 

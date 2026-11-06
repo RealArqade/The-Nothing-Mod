@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** A very small JSON Word0935 (objects, arrays, strings, numbers, true, false, null), enough for Mojang's version files. Java 8 compatible. */
+/** A very small JSON Word0933 (objects, arrays, strings, numbers, true, false, null), enough for Mojang's version files. Java 8 compatible. */
 final class Json {
     private final String s;
     private int i;

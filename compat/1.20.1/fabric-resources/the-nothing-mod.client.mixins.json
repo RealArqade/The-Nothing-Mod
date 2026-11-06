@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"package": "com.realarqade.thenothingmod.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"ExampleClientMixin",
+			"MinecraftScreenMixin",
+			"WindowMixin",
+			"SpriteSourcesAccessor"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

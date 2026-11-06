@@ -9,6 +9,10 @@ base.archivesName = "the-nothing-mod-neoforge"
 
 repositories {
 	maven {
+		name = 'KotlinForForge' // needed by older YetAnotherConfigLib builds
+		url = 'https://thedarkcolour.github.io/KotlinForForge/'
+	}
+	maven {
 		name = 'Xander Maven' // YetAnotherConfigLib
 		url = 'https://maven.isxander.dev/releases'
 	}
@@ -27,19 +31,22 @@ compatRoot.eachFileRecurse { f ->
 		replaced << rel.replaceFirst('^[^/]+/', '')
 	}
 }
-// Older Minecraft versions rename some classes. versions.json can list textual renames (source_replacements = "Old=>New;Old2=>New2"),
+// Older Minecraft versions rename some classes. versions.json can list textual renames (source_replacements = "Old~New;Old2~New2"),
 // applied to a copy of the shared sources in build/prepared; compat/<version>/ files are written in the target version's own names.
-def replacements = (project.findProperty('source_replacements') ?: '').toString().split(';').collect { it.trim() }.findAll { !it.isEmpty() }.collect {
-	def parts = it.split('=>')
-	[java.util.regex.Pattern.compile('\\b' + java.util.regex.Pattern.quote(parts[0].trim()) + '\\b').pattern(), parts[1].trim()]
+def replacements = (project.findProperty('source_replacements') ?: '').toString().split('@@').collect { it.trim() }.findAll { !it.isEmpty() }.collect {
+	def parts = it.split('~')
+	[parts[0].trim().startsWith('r:') ? parts[0].trim().substring(2) : '\\b' + java.util.regex.Pattern.quote(parts[0].trim()) + '\\b', parts[1].trim()]
 }
 def preparedDir = layout.buildDirectory.dir('prepared/java')
 def sharedMain = rootProject.file('src/main/java')
 def sharedClient = rootProject.file('src/client/java')
 def prepare = tasks.register('prepareSources', Sync) {
+	inputs.property('source_replacements', replacements.toString())
+	inputs.property('replaced_files', replaced.toString())
 	into preparedDir
 	from(sharedMain)
 	from(sharedClient)
+	from(layout.projectDirectory.dir('src/main/java'))
 	exclude '**/fabric/**'
 	exclude { el -> replaced.contains(el.relativePath.pathString) }
 	if (!replacements.isEmpty()) {
@@ -55,7 +62,7 @@ tasks.withType(JavaCompile).configureEach { dependsOn prepare }
 sourceSets {
 	main {
 		java {
-			srcDir preparedDir
+			setSrcDirs([preparedDir])
 			srcDir rootProject.file("compat/${project.compat}/java")
 			srcDir rootProject.file("compat/${project.compat}/client")
 			srcDir rootProject.file("compat/${project.compat}/neoforge")
@@ -93,8 +100,10 @@ neoForge {
 dependencies {
 	// Config screen, bundled inside our jar so players don't install it separately.
 	implementation "dev.isxander:yet-another-config-lib:${project.yacl_neoforge_version}"
-	jarJar(implementation("dev.isxander:yet-another-config-lib:${project.yacl_neoforge_version}")) {
-		version { strictly "[${project.yacl_neoforge_version}]" }
+	if (project.bundle_yacl.toString() != 'false') {
+		jarJar(implementation("dev.isxander:yet-another-config-lib:${project.yacl_neoforge_version}")) {
+			version { strictly "[${project.yacl_neoforge_version}]" }
+		}
 	}
 }
 
@@ -106,11 +115,59 @@ processResources {
 	filesMatching("META-INF/neoforge.mods.toml") {
 		expand props
 	}
+	// NeoForge before 1.20.5 reads its metadata from mods.toml
+	def modsTomlName = (project.findProperty('mods_toml_name') ?: 'neoforge.mods.toml').toString()
+	inputs.property 'mods_toml_name', modsTomlName
+	rename { n -> n == 'neoforge.mods.toml' ? modsTomlName : n }
 	// the mixin config names the Java level the mod is compiled for
 	def javaLevel = project.java_version.toString()
 	inputs.property 'java_level', javaLevel
 	filesMatching('*.mixins.json') {
 		filter { line -> line.replace('JAVA_25', 'JAVA_' + javaLevel) }
+	}
+	// 1.21.10 and older: dimension_type JSON has no attributes/timelines, so rewrite it into the older shape
+	def legacyDims = project.dim_format.toString() == 'legacy'
+	inputs.property 'dim_format', legacyDims
+	doLast {
+		if (legacyDims) {
+			def dir = new File(destinationDir, 'data/the-nothing-mod/dimension_type')
+			if (dir.exists()) {
+				dir.listFiles().findAll { it.name.endsWith('.json') }.each { file ->
+					def json = new groovy.json.JsonSlurper().parse(file)
+					['attributes', 'timelines', 'default_clock', 'has_ender_dragon_fight'].each { json.remove(it) }
+					[ultrawarm: false, natural: true, piglin_safe: false, bed_works: false, respawn_anchor_works: false, has_raids: false, effects: 'minecraft:overworld'].each { k, v -> if (!json.containsKey(k)) json[k] = v }
+					file.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(json))
+				}
+			}
+		}
+	}
+	def legacyItems = project.item_models.toString() == 'legacy'
+	inputs.property 'item_models', legacyItems
+	doLast {
+		if (legacyItems) {
+			def items = new File(destinationDir, 'assets/the-nothing-mod/items')
+			def models = new File(destinationDir, 'assets/the-nothing-mod/models/item')
+			if (items.exists()) {
+				models.mkdirs()
+				items.listFiles().findAll { it.name.endsWith('.json') }.each { file ->
+					def target = new File(models, file.name)
+					if (!target.exists()) {
+						def json = new groovy.json.JsonSlurper().parse(file)
+						target.text = groovy.json.JsonOutput.toJson([parent: json.model.model])
+					}
+				}
+			}
+		}
+	}
+	def legacyPaths = project.data_paths.toString() == 'legacy'
+	inputs.property 'data_paths', legacyPaths
+	doLast {
+		if (legacyPaths) {
+			def old = new File(destinationDir, 'data/the-nothing-mod/loot_table')
+			if (old.exists()) {
+				old.renameTo(new File(destinationDir, 'data/the-nothing-mod/loot_tables'))
+			}
+		}
 	}
 	// leave out dimension attributes this Minecraft version does not know
 	filesMatching("data/the-nothing-mod/dimension_type/*.json") {

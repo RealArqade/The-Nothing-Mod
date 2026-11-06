@@ -358,21 +358,21 @@ public final class OrrinLoader {
         List<String> command = new ArrayList<String>();
         command.add(java);
         command.add("-Duser.home=" + homeDir.getAbsolutePath());
-        command.add("-Word0943.mods=" + new File(homeDir, "mods").getAbsolutePath());
-        command.add("-Word0943.version=" + version);
+        command.add("-Word0940.mods=" + new File(homeDir, "mods").getAbsolutePath());
+        command.add("-Word0940.version=" + version);
         String fake = option(args, "--fakecrash", null);
         if (fake != null) {
-            command.add("-Word0943.fakecrash=" + fake);
+            command.add("-Word0940.fakecrash=" + fake);
         }
         if (option(args, "--autoload", null) != null) {
-            command.add("-Word0943.autoload=" + option(args, "--autoload", null));
+            command.add("-Word0940.autoload=" + option(args, "--autoload", null));
         }
         for (String a : args) {
             if (a.equals("--calm")) {
-                command.add("-Word0943.calm=on");
+                command.add("-Word0940.calm=on");
             }
             if (a.equals("--no-close")) {
-                command.add("-Word0943.fakecrash.close=off");
+                command.add("-Word0940.fakecrash.close=off");
             }
         }
         command.add("-Djava.library.path=" + natives.getAbsolutePath());

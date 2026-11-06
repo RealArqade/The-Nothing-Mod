@@ -19,7 +19,7 @@ import java.util.List;
  *   they can be deleted.</li>
  *   <li>At most five, each written once; an existing file is never overwritten; nothing is ever deleted except the files this class made
  *   itself (listed in {@code config/the-nothing-mod-desktop.txt}), and only when the player presses the button in the settings.</li>
- *   <li>Never in Word0949 Mode (a Desktop is on stream), never when "Desktop notes" is switched off, and never anywhere but the Desktop.</li>
+ *   <li>Never in Word0946 Mode (a Desktop is on stream), never when "Desktop notes" is switched off, and never anywhere but the Desktop.</li>
  *   <li>Only one of them uses anything about the player (see {@link PersonalDetails}), and then only if that is allowed.</li>
  *   <li>Nothing here touches the network.</li>
  * </ul>
@@ -112,7 +112,7 @@ final class DesktopFiles {
                     "placeholder text");
             case 1 -> {
                 List<String> lines = new ArrayList<>();
-                lines.add(PersonalDetails.allowed() ? "Word0948, " + PersonalDetails.userName() + "." : "Word0948.");
+                lines.add(PersonalDetails.allowed() ? "Word0945, " + PersonalDetails.userName() + "." : "Word0945.");
                 lines.add("");
                 lines.add("placeholder text");
                 if (PersonalDetails.allowed()) {

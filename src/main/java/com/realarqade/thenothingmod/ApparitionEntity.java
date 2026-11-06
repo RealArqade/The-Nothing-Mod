@@ -198,7 +198,7 @@ public class ApparitionEntity extends PathfinderMob implements Apparition {
         }
     }
 
-    /** Called when it reaches you: an effect, Word0804 a jumpscare, and it is gone. */
+    /** Called when it reaches you: an effect, Word0802 a jumpscare, and it is gone. */
     private void touch(Player player) {
         if (!(player instanceof ServerPlayer target) || !(level() instanceof ServerLevel level)) {
             return;

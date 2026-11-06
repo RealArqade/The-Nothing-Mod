@@ -9,7 +9,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,7 +18,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.RedstoneSide;
-import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -33,7 +31,7 @@ import java.util.Set;
  * signal. If {@link SuspiciousDustProperties#conductsRedstone()} is on, it carries a signal like vanilla dust instead.
  * It only connects to other dust of this same block, and can also link diagonally (see {@link SuspiciousDustProperties}).
  */
-public class SuspiciousDustBlock extends Block {
+public class SuspiciousDustBlock extends DustBlockBase {
     public static final EnumProperty<RedstoneSide> NORTH = Compat.WIRE_NORTH;
     public static final EnumProperty<RedstoneSide> EAST = Compat.WIRE_EAST;
     public static final EnumProperty<RedstoneSide> SOUTH = Compat.WIRE_SOUTH;
@@ -154,8 +152,7 @@ public class SuspiciousDustBlock extends Block {
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos,
-                                     Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+    protected BlockState dustUpdateShape(BlockState state, LevelReader level, BlockPos pos) {
         if (!state.canSurvive(level, pos)) {
             return Blocks.AIR.defaultBlockState();
         }
@@ -180,7 +177,7 @@ public class SuspiciousDustBlock extends Block {
     }
 
     @Override
-    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean movedByPiston) {
+    protected void onDustRemoved(ServerLevel level, BlockPos pos, boolean movedByPiston) {
         refreshDiagonalNeighbors(level, pos);
         if (dustProperties.conductsRedstone() && !movedByPiston) {
             notifyAround(level, pos); // neighbours work out their signal again, now without us
@@ -210,7 +207,7 @@ public class SuspiciousDustBlock extends Block {
     // --- Redstone (only does anything while SuspiciousDustProperties.conductsRedstone() is on) ---
 
     @Override
-    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, Orientation orientation, boolean movedByPiston) {
+    protected void dustNeighborChanged(BlockState state, Level level, BlockPos pos, boolean movedByPiston) {
         if (!level.isClientSide() && dustProperties.conductsRedstone()) {
             updatePowerStrength(level, pos, state);
         }
@@ -392,7 +389,7 @@ public class SuspiciousDustBlock extends Block {
     private void notifyDust(LevelAccessor level, BlockPos.MutableBlockPos dustPos, Direction direction, int flags, int depth) {
         if (level.getBlockState(dustPos).is(this)) {
             BlockPos towardsUs = dustPos.relative(direction.getOpposite());
-            level.neighborShapeChanged(direction.getOpposite(), dustPos, towardsUs, level.getBlockState(towardsUs), flags, depth);
+            neighborShapeChangedCompat(level, direction.getOpposite(), dustPos, towardsUs, level.getBlockState(towardsUs), flags, depth);
         }
     }
 

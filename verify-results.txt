@@ -1,0 +1,42 @@
+fabric 26.3 : build=ok | PRODUCTION fabric 26.3 : STARTED-OK
+neoforge 26.3 : build=ok | PRODUCTION neoforge 26.3 : STARTED-OK
+forge 26.3 : build=ok | PRODUCTION forge 26.3 : STARTED-OK
+neoforge 1.21.11 : build=ok | PRODUCTION neoforge 1.21.11 : STARTED-OK
+forge 1.21.11 : build=ok | PRODUCTION forge 1.21.11 : STARTED-OK
+fabric 1.21.11 : build=ok refmaps=2 | PRODUCTION fabric 1.21.11 : STARTED-OK
+neoforge 1.21.10 : build=ok | PRODUCTION neoforge 1.21.10 : STARTED-OK
+forge 1.21.10 : build=ok | PRODUCTION forge 1.21.10 : STARTED-OK
+fabric 1.21.10 : build=ok refmaps=2 | PRODUCTION fabric 1.21.10 : STARTED-OK
+neoforge 1.21.8 : build=ok | PRODUCTION neoforge 1.21.8 : STARTED-OK
+forge 1.21.8 : build=ok | PRODUCTION forge 1.21.8 : STARTED-OK
+fabric 1.21.8 : build=ok refmaps=2 | PRODUCTION fabric 1.21.8 : STARTED-OK
+neoforge 1.21.7 : build=ok | PRODUCTION neoforge 1.21.7 : STARTED-OK
+forge 1.21.7 : build=ok | PRODUCTION forge 1.21.7 : STARTED-OK
+fabric 1.21.7 : build=ok refmaps=2 | PRODUCTION fabric 1.21.7 : STARTED-OK
+neoforge 1.21.6 : build=ok | PRODUCTION neoforge 1.21.6 : STARTED-OK
+fabric 1.21.6 : build=ok refmaps=2 | PRODUCTION fabric 1.21.6 : STARTED-OK
+neoforge 1.21.5 : build=ok | PRODUCTION neoforge 1.21.5 : STARTED-OK
+forge 1.21.5 : build=ok | PRODUCTION forge 1.21.5 : STARTED-OK
+fabric 1.21.5 : build=ok refmaps=2 | PRODUCTION fabric 1.21.5 : STARTED-OK
+neoforge 1.21.4 : build=ok | PRODUCTION neoforge 1.21.4 : STARTED-OK
+forge 1.21.4 : build=ok | PRODUCTION forge 1.21.4 : STARTED-OK
+fabric 1.21.4 : build=ok refmaps=2 | PRODUCTION fabric 1.21.4 : STARTED-OK
+neoforge 1.21.3 : build=ok | PRODUCTION neoforge 1.21.3 : STARTED-OK
+forge 1.21.3 : build=ok | PRODUCTION forge 1.21.3 : exited :: 
+fabric 1.21.3 : build=ok refmaps=2 | PRODUCTION fabric 1.21.3 : STARTED-OK
+neoforge 1.21.1 : build=ok | PRODUCTION neoforge 1.21.1 : STARTED-OK
+forge 1.21.1 : build=ok | PRODUCTION forge 1.21.1 : STARTED-OK
+fabric 1.21.1 : build=ok refmaps=2 | PRODUCTION fabric 1.21.1 : STARTED-OK
+neoforge 1.20.6 : build=ok | PRODUCTION neoforge 1.20.6 : STARTED-OK
+forge 1.20.6 : build=ok | PRODUCTION forge 1.20.6 : STARTED-OK
+fabric 1.20.6 : build=ok refmaps=2 | PRODUCTION fabric 1.20.6 : STARTED-OK
+fabric 1.20.5 : build=ok refmaps=2 | PRODUCTION fabric 1.20.5 : STARTED-OK
+neoforge 1.20.4 : build=ok | At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:8 char:19 At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:19 char:18 At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:20 char:25 At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:34 char:30 At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:44 char:18 PRODUCTION neoforge 1.20.4 : timeout :: At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:8 char:19 + $java = Join-Path $java 'bin\java.exe'
+forge 1.20.4 : build=ok | At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:8 char:19 At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:23 char:18 At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:34 char:30 At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:44 char:18 PRODUCTION forge 1.20.4 : timeout :: At C:\Users\ichuc\Projects\Minecraft\Mods\TheNothingMod\tools\Test-Production.ps1:8 char:19 + $java = Join-Path $java 'bin\java.exe'
+fabric 1.20.3 : build=ok refmaps=2 | PRODUCTION fabric 1.20.3 : STARTED-OK
+fabric 1.20.4 : build=ok refmaps=2 | PRODUCTION fabric 1.20.4 : STARTED-OK
+fabric 1.20.2 : build=FAIL
+neoforge 1.20.2 : build=FAIL
+fabric 1.20.2 : build=FAIL
+fabric 1.20.2 : build=ok refmaps=2 | PRODUCTION fabric 1.20.2 : FAILED ::   [16:07:22] [main/ERROR]: Mixin apply for mod the-nothing-mod failed the-nothing-mod.mixins.json:CommandsMixin from mod the-nothing-mod -> net.minecraft.class_2170: org.spongepowered.asm.mixin.injection.throwables.Invalid   org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Invalid descriptor on the-nothing-mod.mixins.json:CommandsMixin from mod the-nothing-mod->@Inject::thenothingmod$blockPrefixed(Lnet/minecraft/cl
+neoforge 1.20.2 : build=FAIL

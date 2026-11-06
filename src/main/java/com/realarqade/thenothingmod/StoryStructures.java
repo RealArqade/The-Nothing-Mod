@@ -37,7 +37,7 @@ import java.util.Queue;
 
 /**
  * The story-telling places. Each one is a scene somebody left in the middle of something: a table laid for four with one chair pushed
- * back, a Word0898 with the register open, a camp with the tents zipped and the fire still warm. There are no people and no signs
+ * back, a Word0896 with the register open, a camp with the tents zipped and the fire still warm. There are no people and no signs
  * saying what happened. Every scene is in {@code the-nothing-mod.structures.json} (made by {@code tools/GenerateStructures.ps1}),
  * and each fits inside one chunk, so they can go down while a chunk is generated.
  * <p>
